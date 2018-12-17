@@ -34,12 +34,16 @@
       "model": "selector",
       "foreignKey": "selectorId"
     },
-
     "assesments": {
       "type": "hasMany",
       "model": "assesment",
       "foreignKey": "candidateId",
       "through": "answer"
+    },
+    "answers": {
+      "type": "hasMany",
+      "model": "answer",
+      "foreignKey": "candidateId"
     }
   },
   "acls": [

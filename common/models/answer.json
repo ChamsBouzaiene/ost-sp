@@ -18,6 +18,12 @@
       "type": "number"
     }
   },
+
+  "scope": {
+    "include": "grades"   
+  },
+
+
   "validations": [],
   "relations": {
     "assesment": {

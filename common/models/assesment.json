@@ -22,7 +22,6 @@
   },
   "validations": [],
   "relations": {
-    
     "candidates": {
       "type": "hasMany",
       "model": "candidate",
