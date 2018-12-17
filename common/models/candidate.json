@@ -1,0 +1,66 @@
+{
+  "name": "candidate",
+  "plural": "candidates",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "age": {
+      "type": "string",
+      "required": true
+    },
+    "field": {
+      "type": "string",
+      "required": true
+    },
+    "selectorId": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "selector": {
+      "type": "belongsTo",
+      "model": "selector",
+      "foreignKey": "selectorId"
+    },
+
+    "assesments": {
+      "type": "hasMany",
+      "model": "assesment",
+      "foreignKey": "candidateId",
+      "through": "answer"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "count"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__answers"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__count__answers"
+    }
+  ],
+  "methods": {}
+}

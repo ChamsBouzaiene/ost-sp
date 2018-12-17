@@ -1,0 +1,23 @@
+{
+  "name": "grade",
+  "plural": "grades",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "grade": {
+      "type": "string",
+      "required": true
+    },
+    "assesmentId": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

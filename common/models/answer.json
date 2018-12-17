@@ -1,0 +1,41 @@
+{
+  "name": "answer",
+  "plural": "answers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "answer": {
+      "type": "string",
+      "required": true
+    },
+    "assessmentId": {
+      "type": "number"
+    },
+    "candidateId": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "assesment": {
+      "type": "belongsTo",
+      "model": "assesment",
+      "foreignKey": "assessmentId"
+    },
+    "candidate": {
+      "type": "belongsTo",
+      "model": "candidate",
+      "foreignKey": "candidateId"
+    },
+    "grades": {
+      "type": "hasOne",
+      "model": "grade",
+      "foreignKey": "answerId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

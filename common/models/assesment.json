@@ -1,0 +1,35 @@
+{
+  "name": "assesment",
+  "plural": "assesments",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "recommandation": {
+      "type": "string",
+      "required": true
+    },
+    "grade": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    
+    "candidates": {
+      "type": "hasMany",
+      "model": "candidate",
+      "foreignKey": "assesmentId",
+      "through": "answer"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
