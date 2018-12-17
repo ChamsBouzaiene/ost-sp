@@ -9,7 +9,7 @@ class App extends React.Component {
       <div className="App">
         
         <p className="App-intro">
-         OST-SP
+         OST-SP // Git Kraken
         </p>
       </div>
     );
