@@ -1,18 +1,19 @@
 import * as React from 'react';
-import './App.css';
-import Routes from "./Routes"
 
 
 
-class App extends React.Component {
+
+class Auth extends React.Component {
   public render() {
     return (
       <div className="App">
         
-      <Routes/>
+        <p className="App-intro">
+        Hey Authenticate
+        </p>
       </div>
     );
   }
 }
 
-export default App;
+export default Auth;

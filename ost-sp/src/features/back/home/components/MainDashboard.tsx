@@ -3,17 +3,17 @@ import * as React from 'react';
 
 
 
-class Home extends React.Component {
+class MainDashboard extends React.Component {
   public render() {
     return (
       <div className="App">
         
         <p className="App-intro">
-        Lalalaa
+       Main Dashboard Jib Template
         </p>
       </div>
     );
   }
 }
 
-export default Home;
+export default MainDashboard;

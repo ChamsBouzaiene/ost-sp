@@ -1,18 +1,17 @@
 import * as React from 'react';
-import './App.css';
-import Routes from "./Routes"
 
 
 
-class App extends React.Component {
+
+class NotFound extends React.Component {
   public render() {
     return (
       <div className="App">
         
-      <Routes/>
+       <h1> 404 Not Found</h1>
       </div>
     );
   }
 }
 
-export default App;
+export default NotFound;
