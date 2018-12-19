@@ -1,12 +1,29 @@
 import * as React from 'react';
+import { StatelessComponent } from "react"
 import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
-
+import { connect, MapDispatchToProps } from 'react-redux'
 import "./Auth.css"
+import { ThunkDispatch } from 'redux-thunk';
+import * as Actions from '../actions'
+import { IState } from 'src/shared/store';
+import ILoginCredentials from '../../../../data/LoginCredential'
 
-class Auth extends React.Component {
-  public render() {
-    return (
+
+
+interface DispatchProps {
+  onSubmit : (loginCredientials : ILoginCredentials) => void
+} 
+
+type Props = DispatchProps
+
+const cred = {
+  email : "chamso@gmail.com",
+  password : "12345678"
+}
+
+
+const Auth : StatelessComponent<Props> = ({ onSubmit }) => (
       <div className="app d-flex flex-row align-items-center">
         <Container>
           <Row className="justify-content-center">
@@ -35,7 +52,7 @@ class Auth extends React.Component {
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button color="primary" className="px-4">Login</Button>
+                          <Button color="primary" className="px-4" onClick={() => onSubmit(cred)}>Login</Button>
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0">Forgot password?</Button>
@@ -62,7 +79,14 @@ class Auth extends React.Component {
         </Container>
       </div>
     );
-  }
-}
+  
 
-export default Auth;
+const mapDispatchToProps:  MapDispatchToProps<DispatchProps, {}> = (
+  dispatch : ThunkDispatch<IState, void, Actions.All>
+) => ({
+  onSubmit: (ILoginCredentials : ILoginCredentials)  => {
+    dispatch(Actions.login(ILoginCredentials))
+  }
+})
+
+export default connect(null, mapDispatchToProps)(Auth);
