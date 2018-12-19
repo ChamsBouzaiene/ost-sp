@@ -1,29 +1,30 @@
 import * as React from 'react';
 import { StatelessComponent } from "react"
 import { Link } from 'react-router-dom';
-import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row, FormFeedback } from 'reactstrap';
 import { connect, MapDispatchToProps } from 'react-redux'
 import "./Auth.css"
 import { ThunkDispatch } from 'redux-thunk';
 import * as Actions from '../actions'
 import { IState } from 'src/shared/store';
-import ILoginCredentials from '../../../../data/LoginCredential'
+import ILoginCredentials, { validationSchema } from '../../../../data/LoginCredential'
+import { withFormik, FormikValues, FormikErrors, FormikProps, Field } from "formik"
 
 
 
 interface DispatchProps {
-  onSubmit : (loginCredientials : ILoginCredentials) => void
+  onSubmit : (loginCredientials : ILoginCredentials) => Promise<FormikErrors<FormikValues>> | void
 } 
 
-type Props = DispatchProps
+type Props = DispatchProps & FormikProps<ILoginCredentials>
 
-const cred = {
-  email : "chamso@gmail.com",
-  password : "12345678"
-}
+// const cred = {
+//   email : "chamso@gmail.com",
+//   password : "12345678"
+// }
 
 
-const Auth : StatelessComponent<Props> = ({ onSubmit }) => (
+const Auth : StatelessComponent<Props> = ({ values, handleChange, handleBlur, handleSubmit , touched , errors }) => (
       <div className="app d-flex flex-row align-items-center">
         <Container>
           <Row className="justify-content-center">
@@ -31,7 +32,7 @@ const Auth : StatelessComponent<Props> = ({ onSubmit }) => (
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                       <h1>Login</h1>
                       <p className="text-muted">Sign In to your account</p>
                       <InputGroup className="mb-3">
@@ -40,7 +41,8 @@ const Auth : StatelessComponent<Props> = ({ onSubmit }) => (
                             <i className="icon-user"/>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Username" autoComplete="username" />
+                        <Input tag={Field} invalid={Boolean(errors.email && touched.email)} value={values.email} onChange={handleChange} onBlur={handleBlur} name="email" type="text" placeholder="Username" autoComplete="username" />
+                        <FormFeedback tooltip={true}>{errors.email}</FormFeedback>
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -48,11 +50,11 @@ const Auth : StatelessComponent<Props> = ({ onSubmit }) => (
                             <i className="icon-lock"/>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="current-password" />
+                        <Input value={values.password} onChange={handleChange} onBlur={handleBlur} name="password" type="password" placeholder="Password" autoComplete="current-password" />
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button color="primary" className="px-4" onClick={() => onSubmit(cred)}>Login</Button>
+                          <Button color="primary" className="px-4" type="submit">Login</Button>
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0">Forgot password?</Button>
@@ -89,4 +91,17 @@ const mapDispatchToProps:  MapDispatchToProps<DispatchProps, {}> = (
   }
 })
 
-export default connect(null, mapDispatchToProps)(Auth);
+const AuthWithFormik = withFormik<DispatchProps, ILoginCredentials>({
+  validationSchema,
+  mapPropsToValues : () => ({ email : "", password : ""}),
+  handleSubmit: async (values, {props, setErrors, setSubmitting}) => {
+    const errors = await props.onSubmit(values)
+    if (errors) {
+      setErrors(errors)
+    }
+
+  }
+  }
+)(Auth)
+
+export default connect(null, mapDispatchToProps)(AuthWithFormik);
