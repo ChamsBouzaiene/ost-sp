@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import HeaderProfile from "./HeaderProfile";
 
 class Header extends React.Component {
   render() {
@@ -26,8 +27,12 @@ class Header extends React.Component {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
               <a className="nav-link" href="#">
-                about ost <span className="sr-only">(current)</span>
+                About Us<span className="sr-only">(current)</span>
               </a>
+            </li>
+            <li className="nav-item active">
+              {" "}
+              <HeaderProfile />
             </li>
           </ul>
         </div>
