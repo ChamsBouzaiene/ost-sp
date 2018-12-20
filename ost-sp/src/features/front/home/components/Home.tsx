@@ -43,7 +43,7 @@ class Home extends React.Component {
 
           <div className="row my-second-part-row">
             <div className="col-sm-6 hh">
-              <p className="ost-desc-title">what is ost</p>
+              <p className="ost-desc-title">WHAT IS OST ?</p>
               <p className="ost-desc-paragraph">
                 It is a Start up Competition in partnership with Columbia
                 Engineering and Business School to support Tunisian youth eager
