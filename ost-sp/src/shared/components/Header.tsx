@@ -29,11 +29,6 @@ class Header extends React.Component {
                 about ost <span className="sr-only">(current)</span>
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Application
-              </a>
-            </li>
           </ul>
         </div>
       </nav>
