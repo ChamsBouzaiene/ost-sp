@@ -1,8 +1,9 @@
 import axios from "axios";
 import { ThunkAction } from "redux-thunk";
 
-import { loginRequest } from "./requests";
+import { loginRequest, getUser } from "./requests";
 import IToken from "../../../data/Token";
+import IUser from "../../../data/User";
 import ILoginCredentials from "../../../data/LoginCredential";
 import { IState } from "../../../shared/store";
 
@@ -10,6 +11,9 @@ export const LOGIN = "LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const REDIRECT_HOME = "REDIRECT_HOME";
+export const GET_CURRENT_USER = "GET_CURRENT_USER";
+export const GET_CURRENT_USER_SUCCESS = "GET_CURRENT_USER";
+export const GET_CURRENT_USER_FAILURE = "GET_CURRENT_USER";
 
 export interface ILogin {
   type: typeof LOGIN;
@@ -54,6 +58,7 @@ export const loginSuccess = (
     type: LOGIN_SUCCESS,
     token
   });
+  dispatch(getCurrentUser(token.userId));
 };
 
 export const loginFailure = (error: Error): ILoginFailure => ({
@@ -103,6 +108,55 @@ export const logoutSuccess = (): ThunkAction<
 > => dispatch => {
   dispatch({
     type: LOGOUT_SUCCESS
+  });
+};
+
+// Get Current User
+
+export interface IgetCurrentUser {
+  type: typeof GET_CURRENT_USER;
+}
+
+export interface IgetCurrentUserSuccess {
+  type: typeof GET_CURRENT_USER_SUCCESS;
+  user: IUser;
+}
+
+export interface IgetCurrentUserFailure {
+  type: typeof GET_CURRENT_USER_FAILURE;
+  error: Error;
+}
+
+type getCurrentUser =
+  | IgetCurrentUser
+  | IgetCurrentUserSuccess
+  | IgetCurrentUserFailure;
+
+export const getCurrentUser = (
+  id: number
+): ThunkAction<void, IState, void, getCurrentUser> => dispatch => {
+  dispatch({
+    type: GET_CURRENT_USER
+  });
+  getUser(id)
+    .then((user: IUser) => dispatch(getCurrentUserSuccess(user)))
+    .catch((err: Error) => dispatch(getCurrentUserFailure(err)));
+};
+
+export const getCurrentUserSuccess = (
+  user: IUser
+): ThunkAction<void, IState, void, getCurrentUser> => dispatch => {
+  dispatch({
+    type: GET_CURRENT_USER_SUCCESS,
+    user
+  });
+};
+export const getCurrentUserFailure = (
+  err: Error
+): ThunkAction<void, IState, void, getCurrentUser> => dispatch => {
+  dispatch({
+    type: GET_CURRENT_USER_SUCCESS,
+    err
   });
 };
 
