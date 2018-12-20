@@ -16,6 +16,8 @@ const auth: Reducer<any, Actions.All> = (state = initAuth(), action) => {
   switch (action.type) {
     case Actions.LOGIN_SUCCESS:
       return action.token;
+    case Actions.LOGOUT_SUCCESS:
+      return {};
   }
   return state;
 };
