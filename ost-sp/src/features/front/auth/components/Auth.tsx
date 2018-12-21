@@ -105,9 +105,11 @@ const Auth: StatelessComponent<Props> = ({
                       </Button>
                     </Col>
                     <Col xs="6" className="text-right">
-                      <Button color="link" className="px-0">
-                        Forgot password?
-                      </Button>
+                      <Link to="/auth/forgot">
+                        <Button color="link" className="px-0">
+                          Forgot password?
+                        </Button>
+                      </Link>
                     </Col>
                   </Row>
                 </Form>
@@ -125,7 +127,7 @@ const Auth: StatelessComponent<Props> = ({
                     sed do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua.
                   </p>
-                  <Link to="/register">
+                  <Link to="/auth/register">
                     <Button
                       color="primary"
                       className="mt-3"

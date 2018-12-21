@@ -45,7 +45,10 @@
   },
   "candidate": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
   },
   "answer": {
     "dataSource": "db",
@@ -54,5 +57,8 @@
   "grade": {
     "dataSource": "db",
     "public": true
+  },
+  "Email": {
+    "dataSource": "Email"
   }
 }

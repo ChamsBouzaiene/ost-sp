@@ -20,10 +20,22 @@ export interface IState {
 
 type AllActions = any;
 
+//Redirect to Home Page
+const hasLoggedIn = (action: any) => {
+  return action.type === "LOGIN_SUCCESS";
+};
+//Redirect to Login Page
+const hasRegistred = (action: any) => {
+  return action.type === "REGISTER_SUCCESS";
+};
+
 //Creating a Redirect to home middleware
 const redirectMiddleware = (store: Store) => (next: any) => (action: any) => {
-  if (action.type === "LOGIN_SUCCESS" || action.type === "REGISTER_SUCCESS") {
+  if (hasLoggedIn(action)) {
     (store as any).dispatch(push("/"));
+  }
+  if (hasRegistred(action)) {
+    (store as any).dispatch(push("/auth/verify"));
   }
   next(action);
 };

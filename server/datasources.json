@@ -3,5 +3,24 @@
     "name": "db",
     "connector": "memory",
     "file": "mydata.json"
+  },
+  "Email": {
+    "name": "Email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthoriezd": false
+        },
+        "auth": {
+          "user": "ost.com.tn@gmail.com",
+          "pass": "ostadminadmin"
+        }
+      }
+    ]
   }
 }
