@@ -7,7 +7,7 @@
     "Role": 1,
     "selector": 2,
     "assesment": 2,
-    "candidate": 4,
+    "candidate": 8,
     "answer": 4,
     "grade": 2
   },
@@ -52,7 +52,11 @@
     "candidate": {
       "1": "{\"firstName\":\"string\",\"lastName\":\"string\",\"age\":\"string\",\"field\":\"qsdsd\",\"realm\":\"string\",\"username\":\"string\",\"password\":\"$2a$10$uBlAKHgivFN7spHCC7AAmuGfZWcg0szz6QwjHjlW/rrM9P4FBTR1.\",\"email\":\"can@gmail.com\",\"emailVerified\":false,\"id\":1,\"selectorId\":1}",
       "2": "{\"firstName\":\"chams\",\"lastName\":\"ytlfa7\",\"age\":\"45\",\"field\":\"qsd\",\"realm\":\"qsdsqd\",\"username\":\"chamso\",\"password\":\"$2a$10$sZsFzgIzn4ic3l5eCQrkfeT9b2m4Z839VuvSr8kOMST2jseUGgwbW\",\"email\":\"chamso@gmail.com\",\"emailVerified\":false,\"id\":2,\"selectorId\":1}",
-      "3": "{\"firstName\":\"sdfdsf\",\"lastName\":\"sdf\",\"age\":\"sdfdsf\",\"field\":\"sdfsdf\",\"selectorId\":1,\"realm\":\"sdfsdf\",\"username\":\"sdfsdf\",\"password\":\"$2a$10$pGTueJkxv6p6rN85WFpZHOYvIX6ktvTCLVopGdFIjW1D67z6qzs2O\",\"email\":\"test@gmail.com\",\"emailVerified\":false,\"id\":3}"
+      "3": "{\"firstName\":\"sdfdsf\",\"lastName\":\"sdf\",\"age\":\"sdfdsf\",\"field\":\"sdfsdf\",\"selectorId\":1,\"realm\":\"sdfsdf\",\"username\":\"sdfsdf\",\"password\":\"$2a$10$pGTueJkxv6p6rN85WFpZHOYvIX6ktvTCLVopGdFIjW1D67z6qzs2O\",\"email\":\"test@gmail.com\",\"emailVerified\":false,\"id\":3}",
+      "4": "{\"firstName\":\"sahar\",\"lastName\":\"Mohsni\",\"age\":\"21\",\"field\":\"tatatat\",\"selectorId\":0,\"realm\":\"hhhhh\",\"username\":\"lalala\",\"password\":\"$2a$10$q6D3EoOn03tpPXuYE/TH7.GuwrwuuocBQ9BARbVXD.qbT25Aq49Xi\",\"email\":\"sahar@go.com\",\"emailVerified\":false,\"id\":4}",
+      "5": "{\"password\":\"$2a$10$eE5F/Ujpx/kVkTGfmY5B9urJr0tjRumwrGrbTrTU4LpWvQLd1pMey\",\"email\":\"c@go.com\",\"id\":5}",
+      "6": "{\"cin\":7206723,\"password\":\"$2a$10$y4WANusMX86GN2Lp0bdQ4e7BtvmLsoyvDrKdDC7Z5ULbgt3vWIGPe\",\"email\":\"abd@go.com\",\"id\":6}",
+      "7": "{\"cin\":12345678,\"password\":\"$2a$10$4sjwrWINdBvLYJrB7m7mVuKDvbUNVcjwbHwOBNw1q2mI1Nn2qGcT6\",\"email\":\"rimi@gmail.com\",\"userName\":\"rimi\",\"confirmPassword\":\"12345678\",\"id\":7}"
     },
     "answer": {
       "1": "{\"answer\":\"this is my answer\",\"assessmentId\":1,\"candidateId\":1,\"id\":1}",

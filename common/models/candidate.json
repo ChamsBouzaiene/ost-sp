@@ -9,19 +9,24 @@
   "properties": {
     "firstName": {
       "type": "string",
-      "required": true
+      "required": false
     },
+
     "lastName": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "age": {
       "type": "string",
+      "required": false
+    },
+ "cin": {
+      "type": "number",
       "required": true
     },
     "field": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "selectorId": {
       "type": "number"

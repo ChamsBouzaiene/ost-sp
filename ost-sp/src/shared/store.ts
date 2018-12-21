@@ -22,7 +22,7 @@ type AllActions = any;
 
 //Creating a Redirect to home middleware
 const redirectMiddleware = (store: Store) => (next: any) => (action: any) => {
-  if (action.type === "LOGIN_SUCCESS") {
+  if (action.type === "LOGIN_SUCCESS" || action.type === "REGISTER_SUCCESS") {
     (store as any).dispatch(push("/"));
   }
   next(action);
