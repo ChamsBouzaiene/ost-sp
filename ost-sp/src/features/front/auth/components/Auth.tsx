@@ -53,7 +53,7 @@ const Auth: StatelessComponent<Props> = ({
   touched,
   errors
 }) => (
-  <div className="app d-flex flex-row align-items-center">
+  <div className="app  flex-row align-items-center">
     <Container>
       <Row className="justify-content-center">
         <Col md="8">

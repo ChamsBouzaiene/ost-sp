@@ -4,7 +4,9 @@ import { Redirect, Route, Switch } from "react-router-dom"
 import NotFound from "../../../shared/components/NotFound"
 import MainDashboard from "../../back/home/components/MainDashboard"
 import Auth from "../../front/auth/components/Auth"
+import Register from 'src/features/front/register/components/Register';
 import Home from "../../front/home/components/Home"
+
 
 
 
@@ -14,6 +16,7 @@ const Routes : StatelessComponent = () => (
     <Switch>
         <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/auth" component={Auth} />
+        <Route extact={true} path="/register" component={Register}/>
         <Route exact={true} path="/admin" component={MainDashboard} />
         <Route path="/404"  component={NotFound}/>
         <Route render={redirectTo404} />

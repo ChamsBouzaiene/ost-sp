@@ -1,0 +1,6 @@
+.app{
+    height: 100vh;
+    display: flex !important;
+    align-items: center !important;
+    border: solid;
+}
