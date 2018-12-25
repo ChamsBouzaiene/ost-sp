@@ -11,9 +11,6 @@ export const LOGIN = "LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const REDIRECT_HOME = "REDIRECT_HOME";
-export const GET_CURRENT_USER = "GET_CURRENT_USER";
-export const GET_CURRENT_USER_SUCCESS = "GET_CURRENT_USER";
-export const GET_CURRENT_USER_FAILURE = "GET_CURRENT_USER";
 
 export interface ILogin {
   type: typeof LOGIN;
@@ -112,6 +109,9 @@ export const logoutSuccess = (): ThunkAction<
 };
 
 // Get Current User
+export const GET_CURRENT_USER = "GET_CURRENT_USER";
+export const GET_CURRENT_USER_SUCCESS = "GET_CURRENT_USER_SUCCESS";
+export const GET_CURRENT_USER_FAILURE = "GET_CURRENT_USER_FAILURE";
 
 export interface IgetCurrentUser {
   type: typeof GET_CURRENT_USER;
@@ -152,13 +152,13 @@ export const getCurrentUserSuccess = (
   });
 };
 export const getCurrentUserFailure = (
-  err: Error
+  error: Error
 ): ThunkAction<void, IState, void, getCurrentUser> => dispatch => {
   dispatch({
-    type: GET_CURRENT_USER_SUCCESS,
-    err
+    type: GET_CURRENT_USER_FAILURE,
+    error
   });
 };
 
-export type All = LoginActions | LogoutActions;
+export type All = LoginActions | LogoutActions | getCurrentUser;
 export type Redirect = IRedirectToHome;

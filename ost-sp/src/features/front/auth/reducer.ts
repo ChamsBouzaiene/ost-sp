@@ -18,6 +18,8 @@ const auth: Reducer<any, Actions.All> = (state = initAuth(), action) => {
       return action.token;
     case Actions.LOGOUT_SUCCESS:
       return {};
+    case Actions.GET_CURRENT_USER_SUCCESS:
+      return { ...state, currentuser: action.user };
   }
   return state;
 };
