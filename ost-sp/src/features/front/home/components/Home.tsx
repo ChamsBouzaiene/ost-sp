@@ -2,8 +2,17 @@ import * as React from "react";
 import "./Home.css";
 import Header from "../../../../shared/components/Header/Header";
 import { Link } from "react-router-dom";
+import { MapStateToProps, connect } from "react-redux";
+import { IState } from "src/shared/store";
 
-class Home extends React.Component {
+interface TOwnProps {}
+interface TStateProps {
+  userId: number;
+}
+
+type Props = TStateProps;
+
+class Home extends React.Component<Props> {
   public render() {
     return (
       <div className="App">
@@ -34,9 +43,16 @@ class Home extends React.Component {
                     <p>secondes</p>
                   </div>
                 </div>
-                <Link to="/auth" className="application-btn">
-                  <i className="fab fa-telegram-plane" /> apply now
-                </Link>
+                {this.props.userId ? (
+                  <Link to="/profile" className="application-btn">
+                    <i className="fab fa-telegram-plane" /> Start The
+                    Application
+                  </Link>
+                ) : (
+                  <Link to="/auth" className="application-btn">
+                    <i className="fab fa-telegram-plane" /> apply now
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -84,4 +100,14 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const MapStateToProp: MapStateToProps<TStateProps, TOwnProps, IState> = (
+  state: IState
+) => ({
+  userId: state.auth.userId,
+  userEmail: (state.auth.currentuser || {}).email
+});
+
+export default connect(
+  MapStateToProp,
+  null
+)(Home);

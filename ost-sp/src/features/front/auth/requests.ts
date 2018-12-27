@@ -12,5 +12,9 @@ export const loginRequest = (
     .then(res => res.data);
 };
 export const getUser = (id: number): Promise<IUser> => {
+  console.log(
+    axios.defaults.headers.common.Authorization,
+    "getUser Header axios"
+  );
   return axios.get(`${API_URL}/candidates/${id}`).then(res => res.data);
 };

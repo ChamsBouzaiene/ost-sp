@@ -20,11 +20,19 @@
       "type": "string",
       "required": false
     },
- "cin": {
+    "cin": {
       "type": "number",
       "required": true
     },
-    "field": {
+    "fieldofStudy": {
+      "type": "string",
+      "required": false
+    },
+    "university": {
+      "type": "string",
+      "required": false
+    },
+    "region": {
       "type": "string",
       "required": false
     },
