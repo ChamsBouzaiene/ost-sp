@@ -16,6 +16,7 @@ const AuthRoutes: StatelessComponent = () => (
     <Route exact={true} path="/auth/validate" component={EmailValidation} />
     <Route exact={true} path="/auth/forgot" component={Forgotmypassword} />
     <Route exact={true} path="/auth" component={Auth} />
+
     <Route render={redirectToAuth} />
   </Switch>
 );

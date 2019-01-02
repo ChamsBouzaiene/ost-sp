@@ -1,7 +1,6 @@
 import { API_URL } from "../../../data/Api";
 import axios from "axios";
-import IRegisterCredentials from "../../../data/RegisterCredential";
+import IProfileCredentials from "../../../data/ProfileCredential";
 
-export const registerRequest = (newUser: IRegisterCredentials) => {
-  return axios.post(`${API_URL}/candidates`, newUser).then(res => res.data);
-};
+export const updateOne = (profile: IProfileCredentials, id: number) =>
+  axios.patch(`${API_URL}/candidates/${id}`, profile).then(res => res.data);

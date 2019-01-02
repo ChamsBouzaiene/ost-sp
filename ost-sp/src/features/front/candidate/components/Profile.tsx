@@ -11,10 +11,14 @@ import {
   Input,
   Row
 } from "reactstrap";
+import { IState } from "src/shared/store";
 import IProfileCredentials, {
   validationSchema
 } from "../../../../data/ProfileCredential";
+import * as Actions from "../actions";
 import { StatelessComponent } from "react";
+import { ThunkDispatch } from "redux-thunk";
+import { connect, MapDispatchToProps, MapStateToProps } from "react-redux";
 import {
   withFormik,
   FormikValues,
@@ -25,7 +29,8 @@ import {
 import "./Profile.css";
 interface DispatchProps {
   onSubmit: (
-    profileCredientials: IProfileCredentials
+    profileCredientials: IProfileCredentials,
+    id: number
   ) => Promise<FormikErrors<FormikValues>> | void;
 }
 type Props = DispatchProps & FormikProps<IProfileCredentials>;
@@ -60,7 +65,7 @@ const Profile: StatelessComponent<Props> = ({
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
-                    <i className="icon-user" />
+                    <i className="fas fa-images" />
                   </InputGroupText>
                 </InputGroupAddon>
                 <Input
@@ -78,7 +83,7 @@ const Profile: StatelessComponent<Props> = ({
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
-                    <i className="icon-user" />
+                    <i className="fas fa-user" />
                   </InputGroupText>
                 </InputGroupAddon>
                 <Input
@@ -96,7 +101,7 @@ const Profile: StatelessComponent<Props> = ({
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
-                    <i className="icon-user" />
+                    <i className="fas fa-user-tag" />
                   </InputGroupText>
                 </InputGroupAddon>
                 <Input
@@ -113,7 +118,9 @@ const Profile: StatelessComponent<Props> = ({
               </InputGroup>
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText>@</InputGroupText>
+                  <InputGroupText>
+                    <i className="far fa-map" />
+                  </InputGroupText>
                 </InputGroupAddon>
                 <Input
                   type="text"
@@ -130,7 +137,7 @@ const Profile: StatelessComponent<Props> = ({
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
-                    <i className="fa fa-id-card-o" />
+                    <i className="fas fa-university" />
                   </InputGroupText>
                 </InputGroupAddon>
                 <Input
@@ -148,7 +155,7 @@ const Profile: StatelessComponent<Props> = ({
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
-                    <i className="icon-lock" />
+                    <i className="fas fa-sort-numeric-down" />
                   </InputGroupText>
                 </InputGroupAddon>
                 <Input
@@ -166,7 +173,7 @@ const Profile: StatelessComponent<Props> = ({
               <InputGroup className="mb-4">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
-                    <i className="icon-lock" />
+                    <i className="fas fa-user-graduate" />
                   </InputGroupText>
                 </InputGroupAddon>
                 <Input
@@ -190,7 +197,32 @@ const Profile: StatelessComponent<Props> = ({
   </div>
 );
 
-const ProfileWithFormik = withFormik<DispatchProps, IProfileCredentials>({
+interface TOwnProps {}
+
+interface TStateProps {}
+
+interface FormikDispatchProps {
+  userId: number;
+  onSubmit: (
+    profileCredientials: IProfileCredentials,
+    id: number
+  ) => Promise<FormikErrors<FormikValues>> | void;
+}
+
+const mapStateToProp: MapStateToProps<TStateProps, TOwnProps, IState> = (
+  state: IState
+) => ({
+  userId: state.auth.userId
+});
+
+const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = (
+  dispatch: ThunkDispatch<IState, void, Actions.UpdateProfilActions>
+) => ({
+  onSubmit: (IProfileCredentials: IProfileCredentials, id: number) => {
+    dispatch(Actions.updateProfile(IProfileCredentials, id));
+  }
+});
+const ProfileWithFormik = withFormik<FormikDispatchProps, IProfileCredentials>({
   validationSchema,
   mapPropsToValues: () => ({
     picture: "",
@@ -202,12 +234,15 @@ const ProfileWithFormik = withFormik<DispatchProps, IProfileCredentials>({
     region: ""
   }),
   handleSubmit: async (values, { props, setErrors }) => {
-    const errors = await props.onSubmit(values);
-    console.log(values);
+    const errors = await props.onSubmit(values, props.userId);
+
     if (errors) {
       setErrors(errors);
     }
   }
 })(Profile);
 
-export default ProfileWithFormik;
+export default connect(
+  mapStateToProp,
+  mapDispatchToProps
+)(ProfileWithFormik);

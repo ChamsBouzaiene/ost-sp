@@ -1,0 +1,19 @@
+.app {
+  height: 100vh;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.my-register-row {
+  background-image: url('https://images.pexels.com/photos/7374/startup-photos.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-size: cover
+}
+
+.submit-btn {
+  background-color: #154594;
+  border: #154594;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  width: 160px;
+}

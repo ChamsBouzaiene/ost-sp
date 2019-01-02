@@ -1,57 +1,58 @@
 import { ThunkAction } from "redux-thunk";
-
-import { registerRequest } from "./requests";
-import IRegisterCredentials from "../../../data/RegisterCredential";
-
+import { updateOne } from "./requests";
+import IProfileCredentials from "../../../data/ProfileCredential";
 import { IState } from "../../../shared/store";
 
-export const REGISTER = "REGISTER";
-export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-export const REGISTER_FAILURE = "REGISTER_FAILURE";
+export const UPDATE_PROFILE = "UPDATE_PROFILE";
+export const UPDATE_PROFILE_SUCCESS = "UPDATE_PROFILE_SUCCESS";
+export const UPDATE_PROFILE_FAILURE = " UPDATE_PROFILE_FAILURE";
 
-export interface IRegister {
-  type: typeof REGISTER;
+export interface IUpdateProfile {
+  type: typeof UPDATE_PROFILE;
 }
 
-export interface IRegisterSuccess {
-  type: typeof REGISTER_SUCCESS;
+export interface IUpdateProfileSuccess {
+  type: typeof UPDATE_PROFILE_SUCCESS;
 }
 
-export interface IRegisterFailure {
-  type: typeof REGISTER_FAILURE;
+export interface IUpdateProfileFailure {
+  type: typeof UPDATE_PROFILE_FAILURE;
   error: Error;
 }
 
-type RegisterActions = IRegister | IRegisterSuccess | IRegisterFailure;
+export type UpdateProfilActions =
+  | IUpdateProfile
+  | IUpdateProfileSuccess
+  | IUpdateProfileFailure;
 
-export const register = (
-  registerCredentials: IRegisterCredentials
-): ThunkAction<void, IState, void, RegisterActions> => dispatch => {
+export const updateProfile = (
+  profileCredentials: IProfileCredentials,
+  id: number
+): ThunkAction<void, IState, void, UpdateProfilActions> => dispatch => {
   dispatch({
-    type: REGISTER,
-    registerCredentials
+    type: UPDATE_PROFILE,
+    profileCredentials,
+    id
   });
-  registerRequest(registerCredentials)
+  updateOne(profileCredentials, id)
     .then(() => {
-      dispatch(registerSuccess());
+      dispatch(updateProfileSuccess());
     })
-    .catch((err: any) => dispatch(registerFailure(err)));
+    .catch((err: any) => dispatch(updateProfileFailure(err)));
 };
 
-export const registerSuccess = (): ThunkAction<
+export const updateProfileSuccess = (): ThunkAction<
   void,
   IState,
   void,
-  IRegisterSuccess
+  IUpdateProfileSuccess
 > => dispatch => {
   dispatch({
-    type: REGISTER_SUCCESS
+    type: UPDATE_PROFILE_SUCCESS
   });
 };
 
-export const registerFailure = (error: Error): IRegisterFailure => ({
-  type: REGISTER_FAILURE,
+export const updateProfileFailure = (error: Error): IUpdateProfileFailure => ({
+  type: UPDATE_PROFILE_FAILURE,
   error
 });
-
-export type All = RegisterActions;

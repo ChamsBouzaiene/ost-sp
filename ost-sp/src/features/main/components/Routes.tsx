@@ -5,7 +5,8 @@ import NotFound from "../../../shared/components/NotFound";
 import MainDashboard from "../../back/home/components/MainDashboard";
 import AuthRoutes from "../../front/register/Routes";
 import Home from "../../front/home/components/Home";
-import Profile from "../../front/candidate/components/Profile";
+import ProfileRoutes from "../../front/candidate/Routes";
+import ApplicationRoutes from "../../front/application/Routes";
 
 const redirectTo404 = () => <Redirect to="/404" />;
 
@@ -13,7 +14,8 @@ const Routes: StatelessComponent = () => (
   <Switch>
     <Route exact={true} path="/" component={Home} />
     <Route path="/auth" component={AuthRoutes} />
-    <Route path="/profile" component={Profile} />
+    <Route path="/profile" component={ProfileRoutes} />
+    <Route path="/application" component={ApplicationRoutes} />
     <Route exact={true} path="/admin" component={MainDashboard} />
     <Route path="/404" component={NotFound} />
     <Route render={redirectTo404} />

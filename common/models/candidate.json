@@ -36,6 +36,11 @@
       "type": "string",
       "required": false
     },
+
+    "picture": {
+      "type": "string",
+      "required": false
+    },
     "selectorId": {
       "type": "number"
     }

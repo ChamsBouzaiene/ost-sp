@@ -5,9 +5,26 @@ import { Link } from "react-router-dom";
 import { MapStateToProps, connect } from "react-redux";
 import { IState } from "src/shared/store";
 
+const ProfileLink = () => (
+  <Link to="/profile" className="application-btn">
+    <i className="fab fa-telegram-plane" /> Create A Profile
+  </Link>
+);
+const ApplicationLink = () => (
+  <Link to="/application" className="application-btn">
+    <i className="fab fa-telegram-plane" /> Start The Application
+  </Link>
+);
+const RegisterLink = () => (
+  <Link to="/auth" className="application-btn">
+    <i className="fab fa-telegram-plane" /> Apply now
+  </Link>
+);
+
 interface TOwnProps {}
 interface TStateProps {
   userId: number;
+  userFirstName: string;
 }
 
 type Props = TStateProps;
@@ -44,14 +61,13 @@ class Home extends React.Component<Props> {
                   </div>
                 </div>
                 {this.props.userId ? (
-                  <Link to="/profile" className="application-btn">
-                    <i className="fab fa-telegram-plane" /> Start The
-                    Application
-                  </Link>
+                  this.props.userFirstName ? (
+                    <ApplicationLink />
+                  ) : (
+                    <ProfileLink />
+                  )
                 ) : (
-                  <Link to="/auth" className="application-btn">
-                    <i className="fab fa-telegram-plane" /> apply now
-                  </Link>
+                  <RegisterLink />
                 )}
               </div>
             </div>
@@ -104,7 +120,8 @@ const MapStateToProp: MapStateToProps<TStateProps, TOwnProps, IState> = (
   state: IState
 ) => ({
   userId: state.auth.userId,
-  userEmail: (state.auth.currentuser || {}).email
+  userEmail: (state.auth.currentuser || {}).email,
+  userFirstName: (state.auth.currentuser || {}).firstName
 });
 
 export default connect(
