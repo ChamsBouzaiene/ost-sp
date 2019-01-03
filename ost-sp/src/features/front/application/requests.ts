@@ -14,3 +14,11 @@ export const getApplication = (
 ): Promise<IApplicationCredentials> => {
   return axios.get(`${API_URL}/answer/${id}`).then(res => res.data);
 };
+
+export const getQuestionsreq = () => {
+  return axios
+    .get(
+      `${API_URL}/assesments?filter={ "fields"%3A {"recommandation"%3A false%2C"grade"%3Afalse} }`
+    )
+    .then(res => res.data);
+};

@@ -1,14 +1,14 @@
 {
   "ids": {
     "User": 2,
-    "AccessToken": 46,
+    "AccessToken": 50,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
     "selector": 2,
-    "assesment": 2,
-    "candidate": 17,
-    "answer": 4,
+    "assesment": 6,
+    "candidate": 18,
+    "answer": 38,
     "grade": 2
   },
   "models": {
@@ -60,7 +60,11 @@
       "z0EWB7fLAFFwSEqSdjfmNlc5sJUBi4g4JVEnJGGBSoUYO4TBcTB6pYTpptVXtdL7": "{\"id\":\"z0EWB7fLAFFwSEqSdjfmNlc5sJUBi4g4JVEnJGGBSoUYO4TBcTB6pYTpptVXtdL7\",\"ttl\":1209600,\"created\":\"2018-12-27T14:18:21.593Z\",\"userId\":16}",
       "MZ13EGSaOvGdBL6VSmcu8rTq32NSFLW6qgcwrzzhHdPY4l4lv5sBcQ2T0YQxo65L": "{\"id\":\"MZ13EGSaOvGdBL6VSmcu8rTq32NSFLW6qgcwrzzhHdPY4l4lv5sBcQ2T0YQxo65L\",\"ttl\":1209600,\"created\":\"2018-12-27T17:14:18.229Z\",\"userId\":16}",
       "9eQMpcBVldBr1kEzdYwon4OCYJMyQXBBzNTuV56UEMfGit8IEoI0V786YHXv1pUr": "{\"id\":\"9eQMpcBVldBr1kEzdYwon4OCYJMyQXBBzNTuV56UEMfGit8IEoI0V786YHXv1pUr\",\"ttl\":1209600,\"created\":\"2019-01-02T10:24:58.363Z\",\"userId\":16}",
-      "O8Ime8of93cPJtFxX2yCrxjmBPhpjUgANEYeTafUzG9mTYk0AvCOmsCU6pFZTII7": "{\"id\":\"O8Ime8of93cPJtFxX2yCrxjmBPhpjUgANEYeTafUzG9mTYk0AvCOmsCU6pFZTII7\",\"ttl\":900,\"created\":\"2019-01-02T10:57:09.879Z\",\"userId\":16}"
+      "O8Ime8of93cPJtFxX2yCrxjmBPhpjUgANEYeTafUzG9mTYk0AvCOmsCU6pFZTII7": "{\"id\":\"O8Ime8of93cPJtFxX2yCrxjmBPhpjUgANEYeTafUzG9mTYk0AvCOmsCU6pFZTII7\",\"ttl\":900,\"created\":\"2019-01-02T10:57:09.879Z\",\"userId\":16}",
+      "g7Nd5RjJfDcFAQmtDtWhW2KbAFrhAqyBdkyz6uziD8KCGlftYCvbEiBqd08K0GsS": "{\"id\":\"g7Nd5RjJfDcFAQmtDtWhW2KbAFrhAqyBdkyz6uziD8KCGlftYCvbEiBqd08K0GsS\",\"ttl\":1209600,\"created\":\"2019-01-03T10:57:22.264Z\",\"userId\":16}",
+      "XYxESXzjWIrM6qTVn6uuY6nNrykGHPa2teKHk3E21NrM9IVYklOvAUrX7zvm3bg3": "{\"id\":\"XYxESXzjWIrM6qTVn6uuY6nNrykGHPa2teKHk3E21NrM9IVYklOvAUrX7zvm3bg3\",\"ttl\":1209600,\"created\":\"2019-01-03T15:52:52.514Z\",\"userId\":16}",
+      "h1tPPb2kn7evtlxoCv9vGoN2op8D1bHQgSTq62mV0vuHFy7NAODJCNM8sWBoKQLs": "{\"id\":\"h1tPPb2kn7evtlxoCv9vGoN2op8D1bHQgSTq62mV0vuHFy7NAODJCNM8sWBoKQLs\",\"ttl\":1209600,\"created\":\"2019-01-03T15:55:56.929Z\",\"userId\":17}",
+      "aFKXHZbvW8ZAJ8e8oLanF8tpxLuylPyp0qwz33XGmKhf9zlaUMSuiqcfhK7AvYCR": "{\"id\":\"aFKXHZbvW8ZAJ8e8oLanF8tpxLuylPyp0qwz33XGmKhf9zlaUMSuiqcfhK7AvYCR\",\"ttl\":1209600,\"created\":\"2019-01-03T15:58:45.024Z\",\"userId\":16}"
     },
     "ACL": {},
     "RoleMapping": {},
@@ -69,7 +73,11 @@
       "1": "{\"firstName\":\"slector\",\"lastName\":\"sdfdf\",\"age\":\"58\",\"work\":\"sdf\",\"realm\":\"sdf\",\"username\":\"sdf\",\"password\":\"$2a$10$f0TV85Agh2AjtW1DBzSBReaKncVksToxQRVDn61dIIUXKIZf3N/pq\",\"email\":\"selctort@gmail.com\",\"emailVerified\":false,\"id\":1}"
     },
     "assesment": {
-      "1": "{\"question\":\"What the fuck happened\",\"recommandation\":\"give him 10\",\"grade\":10,\"id\":1}"
+      "1": "{\"question\":\"What the fuck happened\",\"recommandation\":\"give him 10\",\"grade\":10,\"id\":1}",
+      "2": "{\"question\":\"What is your company in 2–5 words?\",\"recommandation\":\"u have only one choice\",\"grade\":5,\"id\":2}",
+      "3": "{\"question\":\"Why is now the time for your company to exist?\",\"recommandation\":\"u have only the one one two three jezzaayr choice\",\"grade\":7,\"id\":3}",
+      "4": "{\"question\":\"What do you love about your team, and why are you the ones to solve this problem?\",\"recommandation\":\"mn3rfch lol lol\",\"grade\":7,\"id\":4}",
+      "5": "{\"question\":\"If you weren’t building your startup, what would you be doing?\",\"recommandation\":\"yes yes yes\",\"grade\":8,\"id\":5}"
     },
     "candidate": {
       "1": "{\"firstName\":\"string\",\"lastName\":\"string\",\"age\":\"string\",\"field\":\"qsdsd\",\"realm\":\"string\",\"username\":\"string\",\"password\":\"$2a$10$uBlAKHgivFN7spHCC7AAmuGfZWcg0szz6QwjHjlW/rrM9P4FBTR1.\",\"email\":\"can@gmail.com\",\"emailVerified\":false,\"id\":1,\"selectorId\":1}",
@@ -87,12 +95,47 @@
       "13": "{\"cin\":72232344,\"password\":\"$2a$10$xepBT3qDkQJGrMCC2H9jB.ekhNXnbm38PRLqAAkSa7Wv.UayGsj2W\",\"email\":\"validatedme@yopmail.com\",\"id\":13}",
       "14": "{\"cin\":722321344,\"password\":\"$2a$10$3Dy6fSVfRrnjnHDDdsfjQuohzZFt5ac7LSLKqgtfKmgZ/Jsa4E.1e\",\"email\":\"validate1dme@yopmail.com\",\"id\":14,\"verificationToken\":\"bb705d89578ffc90a28b53531c75dd976e65525a9031b83d67a499782b3f9ee0e7c84dc130b5b7d03416f8bada5e2d85ce46d5b22c8d0885526b57550d825e62\"}",
       "15": "{\"cin\":7223213404,\"password\":\"$2a$10$OX4G0Pby0RTOIxYDwIeg5eo5VGwcWtfX1i.gdb4O2VLgij7SyuA9e\",\"email\":\"jesus@yopmail.com\",\"id\":15,\"verificationToken\":\"b2b3b330756d74f83d607ef586d09f744eda5c02bc5c45f28483f9375ee99adac4c2b54369c629ee3a88f47923feaa88c0c043fc9b4aba6983a7ca5fec8567b3\"}",
-      "16": "{\"cin\":722321304,\"password\":\"$2a$10$uZNZeX1BCPHNWaXAQAU6quoY.DbzVOQOZQlrfLlXcwTfFhOm91sXC\",\"email\":\"jesus2@yopmail.com\",\"id\":16,\"verificationToken\":null,\"emailVerified\":true,\"picture\":\"dsgsdfsdf\",\"firstName\":\"3iljya\",\"lastName\":\"mahrzya\",\"fieldofStudy\":\"7jéma\",\"age\":\"53\",\"university\":\"mb\",\"region\":\"nassr\"}"
+      "16": "{\"cin\":722321304,\"password\":\"$2a$10$uZNZeX1BCPHNWaXAQAU6quoY.DbzVOQOZQlrfLlXcwTfFhOm91sXC\",\"email\":\"jesus2@yopmail.com\",\"id\":16,\"verificationToken\":null,\"emailVerified\":true,\"picture\":\"dsgsdfsdf\",\"firstName\":\"3iljya\",\"lastName\":\"mahrzya\",\"fieldofStudy\":\"7jéma\",\"age\":\"53\",\"university\":\"mb\",\"region\":\"nassr\"}",
+      "17": "{\"cin\":12345278,\"password\":\"$2a$10$5D8mkQZA7yRQ1uMuHKrFiuu.IiSAiijbt7T8ztCYCN4nf22n1.lr.\",\"email\":\"asma@yopmail.com\",\"userName\":\"asma\",\"confirmPassword\":\"12345678\",\"id\":17,\"verificationToken\":null,\"emailVerified\":true,\"picture\":\"sdfsqdf\",\"firstName\":\"qsdfsqd\",\"lastName\":\"sqdfsdf\",\"fieldofStudy\":\"dsfsdfqsfqsfd\",\"age\":\"12\",\"university\":\"qsdfs\",\"region\":\"sqdfsqdfs\"}"
     },
     "answer": {
       "1": "{\"answer\":\"this is my answer\",\"assessmentId\":1,\"candidateId\":1,\"id\":1}",
       "2": "{\"answer\":\"qsdsqd is my answer\",\"assessmentId\":1,\"candidateId\":1,\"id\":2}",
-      "3": "{\"answer\":\"qsdsqd is my answer\",\"assessmentId\":1,\"candidateId\":3,\"id\":3}"
+      "3": "{\"answer\":\"qsdsqd is my answer\",\"assessmentId\":1,\"candidateId\":3,\"id\":3}",
+      "4": "{\"answer\":\"lol jdida\",\"assessmentId\":1,\"candidateId\":16,\"id\":4}",
+      "5": "{\"answer\":\"MyfirstAnswer\",\"assessmentId\":1,\"candidateId\":16,\"id\":5}",
+      "6": "{\"answer\":\"MySecondAnswer\",\"assessmentId\":2,\"candidateId\":16,\"id\":6}",
+      "7": "{\"answer\":\"MythirdAnswer\",\"assessmentId\":3,\"candidateId\":16,\"id\":7}",
+      "8": "{\"answer\":\"zerzer\",\"assessmentId\":1,\"candidateId\":16,\"id\":8}",
+      "9": "{\"answer\":\"drdrdrdrdrdrdrdrdrd\",\"assessmentId\":5,\"candidateId\":16,\"id\":9}",
+      "10": "{\"answer\":\"zerzerz\",\"assessmentId\":2,\"candidateId\":16,\"id\":10}",
+      "11": "{\"answer\":\"trtrtrtrt\",\"assessmentId\":3,\"candidateId\":16,\"id\":11}",
+      "12": "{\"answer\":\"rfrfrfrfrfrfrfrfr\",\"assessmentId\":4,\"candidateId\":16,\"id\":12}",
+      "13": "{\"answer\":\"qsdqsd\",\"assessmentId\":1,\"candidateId\":16,\"id\":13}",
+      "14": "{\"answer\":\"fffffff\",\"assessmentId\":2,\"candidateId\":16,\"id\":14}",
+      "15": "{\"answer\":\"dddddddddd\",\"assessmentId\":3,\"candidateId\":16,\"id\":15}",
+      "16": "{\"answer\":\"cccccccccc\",\"assessmentId\":4,\"candidateId\":16,\"id\":16}",
+      "17": "{\"answer\":\"sssssssssssss\",\"assessmentId\":5,\"candidateId\":16,\"id\":17}",
+      "18": "{\"answer\":\"xcvxcvx\",\"assessmentId\":1,\"candidateId\":16,\"id\":18}",
+      "19": "{\"answer\":\"xcvxcvx\",\"assessmentId\":2,\"candidateId\":16,\"id\":19}",
+      "20": "{\"answer\":\"xcvxcv\",\"assessmentId\":3,\"candidateId\":16,\"id\":20}",
+      "21": "{\"answer\":\"xcvxcv\",\"assessmentId\":4,\"candidateId\":16,\"id\":21}",
+      "22": "{\"answer\":\"xcvxcvxcv\",\"assessmentId\":5,\"candidateId\":16,\"id\":22}",
+      "23": "{\"answer\":\"sfdsdfs\",\"assessmentId\":1,\"candidateId\":16,\"id\":23}",
+      "24": "{\"answer\":\"fsdfssdf\",\"assessmentId\":2,\"candidateId\":16,\"id\":24}",
+      "25": "{\"answer\":\"sdfs\",\"assessmentId\":3,\"candidateId\":16,\"id\":25}",
+      "26": "{\"answer\":\"sdfsdfdsfsf\",\"assessmentId\":4,\"candidateId\":16,\"id\":26}",
+      "27": "{\"answer\":\"sdfsdf\",\"assessmentId\":5,\"candidateId\":16,\"id\":27}",
+      "28": "{\"answer\":\"sqdqsd\",\"assessmentId\":1,\"candidateId\":16,\"id\":28}",
+      "29": "{\"answer\":\"qsdqsdqsd\",\"assessmentId\":2,\"candidateId\":16,\"id\":29}",
+      "30": "{\"answer\":\"sqdqsdqs\",\"assessmentId\":3,\"candidateId\":16,\"id\":30}",
+      "31": "{\"answer\":\"qsdqsd\",\"assessmentId\":4,\"candidateId\":16,\"id\":31}",
+      "32": "{\"answer\":\"sdfsdgfdghsfhjgfjgdh\",\"assessmentId\":5,\"candidateId\":16,\"id\":32}",
+      "33": "{\"answer\":\"i know\",\"assessmentId\":1,\"candidateId\":17,\"id\":33}",
+      "34": "{\"answer\":\"3 words\",\"assessmentId\":2,\"candidateId\":17,\"id\":34}",
+      "35": "{\"answer\":\"because 9 O\",\"assessmentId\":3,\"candidateId\":17,\"id\":35}",
+      "36": "{\"answer\":\"jilbéb\",\"assessmentId\":4,\"candidateId\":17,\"id\":36}",
+      "37": "{\"answer\":\"fucking my age\",\"assessmentId\":5,\"candidateId\":17,\"id\":37}"
     },
     "grade": {
       "1": "{\"grade\":\"9\",\"assesmentId\":1,\"answerId\":1,\"id\":1}"

@@ -3,6 +3,7 @@ import { routerMiddleware, routerReducer, push } from "react-router-redux";
 import { applyMiddleware, combineReducers, createStore, Store } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import auth from "../features/front/auth/reducer";
+import questions from "../features/front/application/reducer";
 import thunk from "redux-thunk";
 
 export const history = createHistory();
@@ -10,12 +11,14 @@ const middleware = routerMiddleware(history);
 
 const reducers = combineReducers({
   router: routerReducer,
-  auth
+  auth,
+  questions
 });
 
 export interface IState {
   router: ReturnType<typeof routerReducer>;
   auth: ReturnType<typeof auth>;
+  questions: ReturnType<typeof questions>;
 }
 
 type AllActions = any;
