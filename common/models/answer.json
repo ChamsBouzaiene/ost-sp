@@ -6,6 +6,9 @@
   "options": {
     "validateUpsert": true
   },
+  "scope": {
+    "include": "grades"
+  },
   "properties": {
     "answer": {
       "type": "string",
@@ -18,12 +21,6 @@
       "type": "number"
     }
   },
-
-  "scope": {
-    "include": "grades"   
-  },
-
-
   "validations": [],
   "relations": {
     "assesment": {
@@ -42,6 +39,19 @@
       "foreignKey": "answerId"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
   "methods": {}
 }
