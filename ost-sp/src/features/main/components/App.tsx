@@ -4,6 +4,10 @@ import "simple-line-icons/css/simple-line-icons.css";
 import "./App.css";
 import Routes from "./Routes";
 import axios from "axios";
+import { Route, Switch, Redirect } from "react-router-dom";
+import Authorize from "src/shared/components/Authorize";
+import AuthRoutes from "../../front/register/Routes";
+import Home from "../../front/home/components/Home";
 
 class App extends React.Component {
   componentWillMount() {
@@ -26,7 +30,17 @@ class App extends React.Component {
   public render() {
     return (
       <div className="App">
-        <Routes />
+        <Authorize
+          whenNotLoggedIn={
+            <Switch>
+              <Route path="/auth" component={AuthRoutes} />
+              <Route exact={true} path="/" component={Home} />
+
+              <Route path="/" render={() => <Redirect to="/auth" />} />
+            </Switch>
+          }
+          whenLoggedIn={<Routes />}
+        />
       </div>
     );
   }

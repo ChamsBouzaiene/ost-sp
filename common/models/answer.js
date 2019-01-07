@@ -17,18 +17,33 @@ module.exports = function(Answer) {
       //Find the ostUser userId
       // What's his userid
       // what's his Role
-      if (err) return next(err);
-      if (!candidate) return next(new Error("Id not found"));
+      if (err) {
+        return next(err);
+      }
+      if (!candidate) {
+        return next(new Error("Id not found"));
+      }
       console.log("User Found!!");
       console.log("his user id is !!", candidate.id);
       console.log("his role is !!");
       candidate.answers({}, function(err, answers) {
-        if (err) next(err);
-        if (!answers) return next();
-        console.log("He had submited his answers !!");
-        console.log("Fuck off !!");
+        //get assessment number count
+        Answer.app.models.Assesment.count({}, function(err, count) {
+          if (err) {
+            return next(new Error("an error has occured"));
+          }
+          if (answers.length <= count) {
+            return next();
+          } else {
+            console.log("questions ", count);
+            console.log(answers);
+            console.log("He had submited his answers !!");
+            console.log("Fuck off !!");
+
+            next(new Error("Just leave me alone"));
+          }
+        });
       });
     });
-    next(new Error("Just leave me alone"));
   });
 };

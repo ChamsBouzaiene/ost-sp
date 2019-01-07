@@ -3,6 +3,17 @@
 var path = require("path");
 
 module.exports = function(Candidate) {
+  //Create a new remote methode that except user Email
+  //@ this methode is used to send email
+  Candidate.applied = function(email, cb) {
+    cb(null, "Your email is ..." + email);
+  };
+  //Handle the apply remote methode
+  Candidate.remoteMethod("applied", {
+    accepts: { arg: "email", type: "string" },
+    returns: { arg: "greeting", type: "string" }
+  });
+
   //Validate Uninqueness of CIN
   Candidate.validatesUniquenessOf("cin", {
     message: "CIN already Exist"

@@ -25,6 +25,7 @@ interface TOwnProps {}
 interface TStateProps {
   userId: number;
   userFirstName: string;
+  isSubmited: boolean;
 }
 
 type Props = TStateProps;
@@ -37,7 +38,7 @@ class Home extends React.Component<Props> {
           <Header />
           <div className="row hero-part-row">
             <div className="overlay">
-              <h1 className="my-title">
+              <h1 className="my-title" id="test">
                 "Big dreams start<span> with smart ideas"</span>
               </h1>
               <div className="deadline">
@@ -62,7 +63,7 @@ class Home extends React.Component<Props> {
                 </div>
                 {this.props.userId ? (
                   this.props.userFirstName ? (
-                    <ApplicationLink />
+                    <ApplicationLink /> && !this.props.isSubmited
                   ) : (
                     <ProfileLink />
                   )
@@ -121,7 +122,8 @@ const MapStateToProp: MapStateToProps<TStateProps, TOwnProps, IState> = (
 ) => ({
   userId: state.auth.userId,
   userEmail: (state.auth.currentuser || {}).email,
-  userFirstName: (state.auth.currentuser || {}).firstName
+  userFirstName: (state.auth.currentuser || {}).firstName,
+  isSubmited: (state.auth.currentuser || {}).submit
 });
 
 export default connect(

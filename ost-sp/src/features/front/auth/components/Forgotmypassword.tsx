@@ -17,6 +17,7 @@ import {
   Row,
   FormFeedback
 } from "reactstrap";
+import Alert from "reactstrap/lib/Alert";
 
 const EmailLink = `http://localhost:3000/candidates/request-password-reset`;
 
@@ -53,7 +54,8 @@ class Forgot extends Component<ForgotMyPasswordProps> {
       .catch(err => {
         console.error(err.response.data.code);
         this.setState({
-          error: err.response.data.code
+          error: err.response.data,
+          res: ""
         });
       });
   };
@@ -68,7 +70,13 @@ class Forgot extends Component<ForgotMyPasswordProps> {
                 <Card className="p-4">
                   <CardBody>
                     <Form onSubmit={this.handleSubmit}>
-                      <h1>Login</h1>
+                      {this.state.res && (
+                        <Alert color="success">{this.state.res}</Alert>
+                      )}
+                      {this.state.error && (
+                        <Alert color="danger">{this.state.error}</Alert>
+                      )}
+                      <h1>Forgot</h1>
                       <p className="text-muted">Forgot my password</p>
                       <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">

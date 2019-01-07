@@ -5,6 +5,8 @@ import { Fragment } from "react";
 import { connect, MapDispatchToProps } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { RouterAction, push } from "react-router-redux";
+import Axios from "axios";
+import { API_URL } from "src/data/Api";
 
 interface ForgotMyPasswordProps {
   onDidMount: () => void;
@@ -13,7 +15,28 @@ interface ForgotMyPasswordProps {
 class Verify extends Component<ForgotMyPasswordProps> {
   componentDidMount() {
     setTimeout(this.props.onDidMount, 10000);
+
+    const initAuth = () => {
+      let savedToken;
+      try {
+        savedToken = JSON.parse(localStorage.getItem("token") as any);
+      } catch (err) {
+        savedToken = null;
+      }
+      return Promise.resolve(savedToken || {});
+    };
+    initAuth().then(savedToken =>
+      Axios.post(`${API_URL}/assesments/applied`, {
+        email: savedToken.id
+      })
+    );
+    initAuth().then(savedToken =>
+      Axios.patch(`${API_URL}/candidates/${savedToken.userId}`, {
+        submited: true
+      })
+    );
   }
+
   render() {
     return (
       <Fragment>

@@ -32,6 +32,9 @@ const hasRegistred = (action: any) => {
   return action.type === "REGISTER_SUCCESS";
 };
 
+const hasCreatedProfile = (action: any) => {
+  return action.type === "UPDATE_PROFILE_SUCCESS";
+};
 //Creating a Redirect to home middleware
 const redirectMiddleware = (store: Store) => (next: any) => (action: any) => {
   if (hasLoggedIn(action)) {
@@ -39,6 +42,10 @@ const redirectMiddleware = (store: Store) => (next: any) => (action: any) => {
   }
   if (hasRegistred(action)) {
     (store as any).dispatch(push("/auth/verify"));
+  }
+
+  if (hasCreatedProfile(action)) {
+    (store as any).dispatch(push("/"));
   }
   next(action);
 };

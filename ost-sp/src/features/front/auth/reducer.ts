@@ -19,6 +19,8 @@ const auth: Reducer<any, Actions.All> = (state = initAuth(), action) => {
       return {};
     case Actions.GET_CURRENT_USER_SUCCESS:
       return { ...state, currentuser: action.user };
+    case Actions.RESETPASSWORD_SUCCESS:
+      return { ...state, passwwordReset: "success" };
   }
   return state;
 };
