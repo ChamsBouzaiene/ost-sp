@@ -16,7 +16,7 @@ const Routes: StatelessComponent = () => (
     <Route path="/auth" component={AuthRoutes} />
     <Route path="/profile" component={ProfileRoutes} />
     <Route path="/application" component={ApplicationRoutes} />
-    <Route exact={true} path="/admin" component={MainDashboard} />
+    <Route path="/admin" component={MainDashboard} />
     <Route path="/404" component={NotFound} />
     <Route render={redirectTo404} />
   </Switch>

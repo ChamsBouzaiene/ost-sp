@@ -1,0 +1,24 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  width: 25vh;
+  height: 100%;
+  background-color: rgba(82, 80, 80, 0.65);
+}
+
+.sidebar-element {
+  margin-top: 20px;
+  padding: 5px;
+  font-size: 12px;
+  width: 25vh;
+  color: white;
+}
+.main-content {
+  display: flex;
+}
+
+.main {
+  border: solid;
+  width: 100%;
+}

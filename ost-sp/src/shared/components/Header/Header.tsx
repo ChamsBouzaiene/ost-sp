@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import HeaderProfile from "./HeaderProfile";
-
+import { AppSidebarToggler } from "@coreui/react";
 class Header extends React.Component {
   render() {
     return (
@@ -12,6 +12,10 @@ class Header extends React.Component {
             alt=""
           />
         </Link>
+        <AppSidebarToggler className="d-lg-none" display="md" mobile={true} />
+
+        <AppSidebarToggler className="d-md-down-none" display="lg" />
+
         <button
           className="navbar-toggler"
           type="button"
