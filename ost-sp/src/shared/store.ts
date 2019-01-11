@@ -5,6 +5,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import auth from "../features/front/auth/reducer";
 import questions from "../features/front/application/reducer";
 import thunk from "redux-thunk";
+import entity from "../features/back/entity/reducer";
 
 export const history = createHistory();
 const middleware = routerMiddleware(history);
@@ -12,13 +13,15 @@ const middleware = routerMiddleware(history);
 const reducers = combineReducers({
   router: routerReducer,
   auth,
-  questions
+  questions,
+  entity
 });
 
 export interface IState {
   router: ReturnType<typeof routerReducer>;
   auth: ReturnType<typeof auth>;
   questions: ReturnType<typeof questions>;
+  entity: ReturnType<typeof entity>;
 }
 
 type AllActions = any;

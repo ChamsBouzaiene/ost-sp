@@ -1,7 +1,7 @@
 {
   "ids": {
     "User": 2,
-    "AccessToken": 70,
+    "AccessToken": 71,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
@@ -9,7 +9,8 @@
     "assesment": 6,
     "candidate": 19,
     "answer": 71,
-    "grade": 2
+    "grade": 2,
+    "Admin": 2
   },
   "models": {
     "User": {
@@ -51,7 +52,8 @@
       "bSk6pfr8jFYI8kMjjq7qZH1XlCVloaxaZ21SihF9I4QkLWweTdHPEDL4bNWrioC5": "{\"id\":\"bSk6pfr8jFYI8kMjjq7qZH1XlCVloaxaZ21SihF9I4QkLWweTdHPEDL4bNWrioC5\",\"ttl\":900,\"created\":\"2019-01-07T16:16:00.070Z\",\"userId\":16}",
       "GTvhKuBGMEPcuxA8gSDBzXR3rwM4ytDpeVvcNPtAMqQKBhjiCQcuUu9aXfcGvp83": "{\"id\":\"GTvhKuBGMEPcuxA8gSDBzXR3rwM4ytDpeVvcNPtAMqQKBhjiCQcuUu9aXfcGvp83\",\"ttl\":1209600,\"created\":\"2019-01-07T20:45:46.500Z\",\"userId\":16}",
       "SXEnKV21GZADipp101a1HWyQfAXCWgShXaMrwUVNDQKjQzEEot1UJzw2ODKTCKzq": "{\"id\":\"SXEnKV21GZADipp101a1HWyQfAXCWgShXaMrwUVNDQKjQzEEot1UJzw2ODKTCKzq\",\"ttl\":1209600,\"created\":\"2019-01-07T22:40:04.218Z\",\"userId\":16}",
-      "EpKbZFVzLbq4wsSomXMndet35U7l7xcxG42Q2gyNl3q6AfWUsJ7m4TpHTauKczsF": "{\"id\":\"EpKbZFVzLbq4wsSomXMndet35U7l7xcxG42Q2gyNl3q6AfWUsJ7m4TpHTauKczsF\",\"ttl\":1209600,\"created\":\"2019-01-07T23:04:39.800Z\",\"userId\":16}"
+      "EpKbZFVzLbq4wsSomXMndet35U7l7xcxG42Q2gyNl3q6AfWUsJ7m4TpHTauKczsF": "{\"id\":\"EpKbZFVzLbq4wsSomXMndet35U7l7xcxG42Q2gyNl3q6AfWUsJ7m4TpHTauKczsF\",\"ttl\":1209600,\"created\":\"2019-01-07T23:04:39.800Z\",\"userId\":16}",
+      "HZ97MURoz1B3vfW2PctlbBQEVccqOmHIziVYygHy0WsGJweTPzohLCQMDyasUQd2": "{\"id\":\"HZ97MURoz1B3vfW2PctlbBQEVccqOmHIziVYygHy0WsGJweTPzohLCQMDyasUQd2\",\"ttl\":1209600,\"created\":\"2019-01-11T11:23:04.026Z\",\"userId\":1}"
     },
     "ACL": {},
     "RoleMapping": {},
@@ -160,6 +162,10 @@
     },
     "grade": {
       "1": "{\"grade\":\"9\",\"assesmentId\":1,\"answerId\":1,\"id\":1}"
-    }
+    },
+    "Admin": {
+      "1": "{\"role\":\"admin\",\"password\":\"$2a$10$LkEIhGEWV3Of0J8k7WLLRu/s73jYkXZVvja3YcrfwnfPSM42oD3US\",\"email\":\"string@yopmail.com\",\"emailVerified\":false,\"id\":1}"
+    },
+    "SuperUser": {}
   }
 }

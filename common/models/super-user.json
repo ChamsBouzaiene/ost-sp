@@ -1,0 +1,19 @@
+{
+  "name": "SuperUser",
+  "plural": "superusers",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "role": {
+      "type": "string",
+      "default": "admin"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

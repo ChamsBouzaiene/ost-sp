@@ -60,5 +60,13 @@
   },
   "Email": {
     "dataSource": "Email"
+  },
+  "Admin": {
+    "dataSource": "db",
+    "public": true
+  },
+  "SuperUser": {
+    "dataSource": "db",
+    "public": true
   }
 }
