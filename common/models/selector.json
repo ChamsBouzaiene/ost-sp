@@ -50,6 +50,12 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "__count__projects"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "ADMIN",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
