@@ -164,7 +164,7 @@
       "1": "{\"grade\":\"9\",\"assesmentId\":1,\"answerId\":1,\"id\":1}"
     },
     "Admin": {
-      "1": "{\"role\":\"admin\",\"password\":\"$2a$10$LkEIhGEWV3Of0J8k7WLLRu/s73jYkXZVvja3YcrfwnfPSM42oD3US\",\"email\":\"string@yopmail.com\",\"emailVerified\":false,\"id\":1}"
+      "1": "{\"role\":\"admin\",\"password\":\"$2a$10$LkEIhGEWV3Of0J8k7WLLRu/s73jYkXZVvja3YcrfwnfPSM42oD3US\",\"email\":\"string@yopmail.com\",\"emailVerified\":false,\"id\":1,\"firstname\":\"chams\",\"lastname\":\"bouzaiene\",\"firstName\":\"chams\",\"lastName\":\"bouzaiene\"}"
     },
     "SuperUser": {}
   }

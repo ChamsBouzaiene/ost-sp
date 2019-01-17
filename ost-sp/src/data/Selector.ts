@@ -4,3 +4,13 @@ export default interface ISelector {
   firstName: string;
   lastName: string;
 }
+
+export const Selector = [
+  {
+    firstName: "First Name",
+    lastName: "Last Name",
+    email: "Email",
+    work: "Field",
+    age: "Age"
+  }
+];

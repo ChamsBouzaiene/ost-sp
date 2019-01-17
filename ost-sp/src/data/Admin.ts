@@ -4,3 +4,11 @@ export default interface IAdmin {
   firstName: string;
   lastName: string;
 }
+
+export const Admin = [
+  {
+    firstName: "First Name",
+    lastName: "Last Name",
+    email: "Email"
+  }
+];

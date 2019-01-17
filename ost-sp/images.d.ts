@@ -8,3 +8,6 @@ declare module "*.tiff";
 declare module "@coreui/react";
 declare module "@coreui/coreui-plugin-chartjs-custom-tooltips";
 declare module "@coreui/coreui/dist/js/coreui-utilities";
+declare module "mdbreact";
+declare module "@trendmicro/react-sidenav";
+declare module "lorem-ipsum";

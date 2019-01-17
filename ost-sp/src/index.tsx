@@ -1,11 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Provider } from "react-redux"
-import { ConnectedRouter } from 'react-router-redux'
-import App from './features/main/components/App';
-import './index.css';
-import { history, store } from "./shared/store"
+import "bootstrap/dist/css/bootstrap.min.css";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { ConnectedRouter } from "react-router-redux";
+import App from "./features/main/components/App";
+import "./index.css";
+import { history, store } from "./shared/store";
+import "typeface-roboto";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -13,6 +14,5 @@ ReactDOM.render(
       <App />
     </ConnectedRouter>
   </Provider>,
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
-
