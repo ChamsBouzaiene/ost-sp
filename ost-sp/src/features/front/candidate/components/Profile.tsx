@@ -27,14 +27,43 @@ import {
   Field
 } from "formik";
 import "./Profile.css";
+//import DropDown from "../../../../shared/components/DropDown";
+//import AvatarUpload from "../../../../shared/components/AvatarUpload";
+import { universities } from "../../../../data/Universities";
+import { majors } from "../../../../data/Majors";
+import { levelOfstudies } from "../../../../data/LevelOfstudies";
+import Region from "../../../../data/Region";
+import Label from "reactstrap/lib/Label";
+import FormFeedback from "reactstrap/lib/FormFeedback";
+import FormGroup from "reactstrap/lib/FormGroup";
+import FormText from "reactstrap/lib/FormText";
+import { API_URL } from "../../../../data/Api";
+//import Label from "reactstrap/lib/Label";
+import Axios from "axios";
+//import Media from "reactstrap/lib/Media";
+
+//Convert Value C:\fakepath\20171120_180717.jpg to 20171120_180717.jpg
+//So i can save it to the user and useit as a data source
+// const getFileName = (value: any) => {
+//   const fileName = value.split("\\")[value.split("\\").length - 1];
+//   const fileSourceUrl =
+//     API_URL + "/attachements/container/download/" + fileName;
+//   console.log(fileName, fileSourceUrl);
+//   return fileSourceUrl;
+// };
+
 interface DispatchProps {
   onSubmit: (
     profileCredientials: IProfileCredentials,
     id: number
   ) => Promise<FormikErrors<FormikValues>> | void;
 }
-type Props = DispatchProps & FormikProps<IProfileCredentials>;
+
+const fileUploadUrl = API_URL + "/attachements/container/upload ";
+
+type Props = DispatchProps & TOwnProps & FormikProps<IProfileCredentials>;
 const Profile: StatelessComponent<Props> = ({
+  userId,
   values,
   handleChange,
   handleBlur,
@@ -65,71 +94,17 @@ const Profile: StatelessComponent<Props> = ({
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
-                    <i className="fas fa-images" />
+                    <i className="fab fa-facebook-f" />
                   </InputGroupText>
                 </InputGroupAddon>
                 <Input
                   type="text"
-                  placeholder="Picture"
-                  autoComplete="picture"
-                  name="picture"
+                  placeholder="facebook profile"
+                  autoComplete="facebookLink"
+                  name="facebookLink"
                   tag={Field}
-                  invalid={Boolean(errors.picture && touched.picture)}
-                  value={values.picture}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-              </InputGroup>
-              <InputGroup className="mb-3">
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    <i className="fas fa-user" />
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                  type="text"
-                  placeholder="First Name"
-                  autoComplete="firstName"
-                  name="firstName"
-                  tag={Field}
-                  invalid={Boolean(errors.firstName && touched.firstName)}
-                  value={values.firstName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-              </InputGroup>
-              <InputGroup className="mb-3">
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    <i className="fas fa-user-tag" />
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                  type="text"
-                  placeholder="Last Name"
-                  autoComplete="lastName"
-                  name="lastName"
-                  tag={Field}
-                  invalid={Boolean(errors.lastName && touched.lastName)}
-                  value={values.lastName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-              </InputGroup>
-              <InputGroup className="mb-3">
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    <i className="far fa-map" />
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                  type="text"
-                  placeholder="Region"
-                  autoComplete="region"
-                  name="region"
-                  tag={Field}
-                  invalid={Boolean(errors.region && touched.region)}
-                  value={values.region}
+                  invalid={Boolean(errors.facebookLink && touched.facebookLink)}
+                  value={values.facebookLink}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -140,7 +115,257 @@ const Profile: StatelessComponent<Props> = ({
                     <i className="fas fa-university" />
                   </InputGroupText>
                 </InputGroupAddon>
+
                 <Input
+                  type="select"
+                  name="major"
+                  id="levelOfstudies"
+                  placeholder="majors"
+                  autoComplete="major"
+                  invalid={Boolean(errors.major && touched.major)}
+                  value={values.major}
+                  onChange={handleChange}
+                >
+                  {majors.map(el => (
+                    <option key={el.id}>{el.name}</option>
+                  ))}
+                </Input>
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="fas fa-user-tag" />
+                  </InputGroupText>
+                </InputGroupAddon>
+
+                <Input
+                  type="select"
+                  name="levelOfstudies"
+                  id="levelOfstudies"
+                  placeholder="level Of studies"
+                  autoComplete="levelOfstudies"
+                  invalid={Boolean(
+                    errors.levelOfstudies && touched.levelOfstudies
+                  )}
+                  value={values.levelOfstudies}
+                  onChange={handleChange}
+                >
+                  {levelOfstudies.map(el => (
+                    <option key={el.id}>{el.name}</option>
+                  ))}
+                </Input>
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="far fa-map" />
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="select"
+                  name="region"
+                  id="region"
+                  placeholder="region"
+                  autoComplete="region"
+                  invalid={Boolean(errors.region && touched.region)}
+                  value={values.region}
+                  onChange={handleChange}
+                >
+                  {Object.values(Region).map((el, i) => (
+                    <option key={i}>{el}</option>
+                  ))}
+                </Input>
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="fas fa-university" />
+                  </InputGroupText>
+                </InputGroupAddon>
+
+                <Input
+                  type="select"
+                  name="university"
+                  id="university"
+                  placeholder="University"
+                  autoComplete="university"
+                  invalid={Boolean(errors.university && touched.university)}
+                  value={values.university}
+                  onChange={handleChange}
+                >
+                  {universities.map(el => (
+                    <option key={el.id}>{el.name}</option>
+                  ))}
+                </Input>
+              </InputGroup>
+              <InputGroupText>
+                <i className="fas fa-check-circle" />
+                {" Write down your bio ? "}
+              </InputGroupText>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend" />
+
+                <Input
+                  type="textarea"
+                  name="bio"
+                  id="bio"
+                  placeholder="bio"
+                  autoComplete="bio"
+                  invalid={Boolean(errors.bio && touched.bio)}
+                  value={values.bio}
+                  onChange={handleChange}
+                />
+              </InputGroup>
+              <InputGroupText>
+                <i className="fas fa-check-circle" />
+                {" Upload your resume ? "}
+              </InputGroupText>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend" />
+
+                <FormGroup>
+                  <Label for="exampleFile">Resume</Label>
+                  <Input
+                    type="file"
+                    placeholder="Resume"
+                    autoComplete="Resume"
+                    onChange={e => {
+                      console.log((e as any).target.files[0]);
+
+                      const file = (e as any).target.files[0];
+                      const formData = new FormData();
+                      formData.append("file", file);
+                      const config = {
+                        headers: {
+                          "content-type": "multipart/form-data"
+                        }
+                      };
+                      return Axios.post(fileUploadUrl, formData, config)
+                        .then(res => res.data)
+                        .then(data => data.result.files.file[0].name)
+                        .then(fileName => {
+                          Axios.patch(`${API_URL}/candidates/${userId}`, {
+                            resume: fileName
+                          });
+                          console.log(fileName);
+                        });
+                    }}
+                  />
+                  <FormText color="muted">Upload your resmue ...</FormText>
+                </FormGroup>
+              </InputGroup>
+              <InputGroupText>
+                <i className="fas fa-check-circle" />
+                {" Upload your picture ? "}
+              </InputGroupText>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend" />
+
+                <FormGroup>
+                  <Label for="exampleFile">Avatar</Label>
+                  <Input
+                    type="file"
+                    placeholder="avatar"
+                    autoComplete="avatar"
+                    onChange={e => {
+                      console.log((e as any).target.files[0]);
+
+                      const file = (e as any).target.files[0];
+                      const formData = new FormData();
+                      formData.append("file", file);
+                      const config = {
+                        headers: {
+                          "content-type": "multipart/form-data"
+                        }
+                      };
+                      return Axios.post(fileUploadUrl, formData, config)
+                        .then(res => res.data)
+                        .then(data => data.result.files.file[0].name)
+                        .then(fileName => {
+                          Axios.patch(`${API_URL}/candidates/${userId}`, {
+                            avatar: fileName
+                          });
+                          console.log(fileName);
+                        });
+                    }}
+                  />
+                  <FormText color="muted">Upload a decent picture ...</FormText>
+                </FormGroup>
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="fas fa-check-circle" />
+                    {" You hold a valid passeport until september 2019? "}
+                  </InputGroupText>
+                </InputGroupAddon>
+
+                <Input
+                  type="select"
+                  name="validPassport"
+                  id="validPassport"
+                  placeholder="validPassport"
+                  autoComplete="validPassport"
+                  invalid={Boolean(
+                    errors.validPassport && touched.validPassport
+                  )}
+                  value={values.validPassport}
+                  onChange={handleChange}
+                >
+                  You hold a valid passeport until september 2019?
+                  {["Yes", "No"].map((el, i) => (
+                    <option key={i}>{el}</option>
+                  ))}
+                </Input>
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="fas fa-check-circle" />
+                    You hold a valid university registration certificate for
+                    2019-2020?
+                  </InputGroupText>
+                </InputGroupAddon>
+
+                <Input
+                  type="select"
+                  name="validUniCertificate"
+                  id="validUniCertificate"
+                  placeholder="validUniCertificate"
+                  autoComplete="validUniCertificate"
+                  invalid={Boolean(
+                    errors.validUniCertificate && touched.validUniCertificate
+                  )}
+                  value={values.validUniCertificate}
+                  onChange={handleChange}
+                >
+                  {["Yes", "No"].map((el, i) => (
+                    <option key={i}>{el}</option>
+                  ))}
+                </Input>
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="far fa-comment-dots" />
+                    Insert recommendation code if applicable:
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  placeholder="Recomendation Code"
+                  autoComplete="recomendationCode"
+                  name="recomendationCode"
+                  tag={Field}
+                  invalid={Boolean(
+                    errors.recomendationCode && touched.recomendationCode
+                  )}
+                  value={values.recomendationCode}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </InputGroup>
+              {/* <Input
                   type="text"
                   placeholder="University"
                   autoComplete="university"
@@ -150,45 +375,39 @@ const Profile: StatelessComponent<Props> = ({
                   value={values.university}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                /> */}
+              {/* <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="fas fa-university" />
+                  </InputGroupText>
+                </InputGroupAddon>
+                <DropDown
+                  list={universities}
+                  name={"university"}
+                  value={values.university}
+                  handleChange={handleChange}
                 />
-              </InputGroup>
+              </InputGroup> */}
+
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    <i className="fas fa-sort-numeric-down" />
-                  </InputGroupText>
+                  <InputGroupText />
                 </InputGroupAddon>
-                <Input
-                  type="text"
-                  placeholder="age"
-                  autoComplete="new-age"
-                  name="age"
-                  tag={Field}
-                  invalid={Boolean(errors.age && touched.age)}
-                  value={values.age}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
+                <Label check={true}>
+                  <Input
+                    type="checkbox"
+                    name="dates"
+                    invalid={Boolean(errors.dates && touched.dates)}
+                    onChange={handleChange}
+                  />{" "}
+                  You are available during all above mentioned dates
+                </Label>
+                <FormFeedback tooltip={true}>{errors.dates}</FormFeedback>
               </InputGroup>
-              <InputGroup className="mb-4">
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    <i className="fas fa-user-graduate" />
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                  type="text"
-                  placeholder="field of Study"
-                  autoComplete="fieldofStudy"
-                  name="fieldofStudy"
-                  tag={Field}
-                  invalid={Boolean(errors.fieldofStudy && touched.fieldofStudy)}
-                  value={values.fieldofStudy}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-              </InputGroup>
-              <Button className="submit-form">Submit</Button>
+              <Button type="submit" className="submit-form">
+                Submit
+              </Button>
             </Form>
           </CardBody>
         </Card>
@@ -197,7 +416,9 @@ const Profile: StatelessComponent<Props> = ({
   </div>
 );
 
-interface TOwnProps {}
+interface TOwnProps {
+  userId: number;
+}
 
 interface TStateProps {}
 
@@ -225,13 +446,17 @@ const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = (
 const ProfileWithFormik = withFormik<FormikDispatchProps, IProfileCredentials>({
   validationSchema,
   mapPropsToValues: () => ({
-    picture: "",
-    firstName: "",
-    lastName: "",
-    fieldofStudy: "",
-    age: "",
-    university: "",
-    region: ""
+    recomendationCode: "",
+    facebookLink: "",
+    validUniCertificate: "",
+    major: "Major",
+    levelOfstudies: "Level Of Studies",
+    validPassport: "",
+    university: "university",
+    region: "",
+
+    bio: "",
+    dates: false
   }),
   handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.onSubmit(values, props.userId);

@@ -8,7 +8,13 @@ import {
 } from "./errors";
 
 export const validationSchema = yup.object().shape({
-  userName: yup.string().required(isRequired("userName")),
+  Surname: yup.string().required(isRequired("Surname")),
+  FamilyName: yup.string().required(isRequired("Family Name")),
+  DateOfBirth: yup.string().required(isRequired("Date Of Birth")),
+  gender: yup.string().required(isRequired("Gender")),
+  nationality: yup.string().required(isRequired("Nationality")),
+  address: yup.string().required(isRequired("address")),
+  phoneNumber: yup.string().required(isRequired("phoneNumber")),
   email: yup
     .string()
     .min(3, isTooShort("Email"))
@@ -16,8 +22,8 @@ export const validationSchema = yup.object().shape({
     .email(isInvalid("Email"))
     .required(isRequired("Email")),
   cin: yup
-    .number()
-    .test("len", isInvalid("CIN"), val => val.toString().length === 8)
+    .string()
+    .test("len", isInvalid("CIN"), val => val.length === 8)
     .required(isRequired("CIN")),
   password: yup
     .string()
@@ -30,10 +36,21 @@ export const validationSchema = yup.object().shape({
     .required(isMatched("Password"))
 });
 
+// interface Gender {
+//   Male?: string;
+//   Female?: string;
+// }
+
 interface IRegisterCredentials {
-  userName: string;
+  Surname: string;
+  FamilyName: string;
+  DateOfBirth: string;
+  gender: string;
+  nationality: string;
+  address: string;
+  phoneNumber: string;
   email: string;
-  cin: number;
+  cin: string;
   password: string;
   confirmPassword: string;
 }

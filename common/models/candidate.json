@@ -7,23 +7,39 @@
     "validateUpsert": true
   },
   "properties": {
-    "firstName": {
+    "Surname": {
       "type": "string",
-      "required": false
-    },
-    "lastName": {
-      "type": "string",
-      "required": false
-    },
-    "age": {
-      "type": "string",
-      "required": false
-    },
-    "cin": {
-      "type": "number",
       "required": true
     },
-    "fieldofStudy": {
+    "FamilyName": {
+      "type": "string",
+      "required": true
+    },
+    "DateOfBirth": {
+      "type": "date",
+      "required": true
+    },
+    "cin": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "required": true
+    },
+    "nationality": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "major": {
       "type": "string",
       "required": false
     },
@@ -31,11 +47,39 @@
       "type": "string",
       "required": false
     },
+    "facebookLink": {
+      "type": "string",
+      "required": false
+    },
+    "levelOfstudies": {
+      "type": "string",
+      "required": false
+    },
     "region": {
       "type": "string",
       "required": false
     },
-    "picture": {
+    "validPassport": {
+      "type": "string",
+      "required": false
+    },
+    "validUniCertificate": {
+      "type": "string",
+      "required": false
+    },
+    "recomendationCode": {
+      "type": "string",
+      "required": false
+    },
+    "avatar": {
+      "type": "string",
+      "required": false
+    },
+    "resume": {
+      "type": "string",
+      "required": false
+    },
+    "bio": {
       "type": "string",
       "required": false
     },
@@ -84,13 +128,19 @@
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
-      "property": "__count__answers"
+      "property": "findById"
     },
     {
-      "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "ADMIN",
-      "permission": "ALLOW"
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__count__answers"
     }
   ],
   "methods": {}

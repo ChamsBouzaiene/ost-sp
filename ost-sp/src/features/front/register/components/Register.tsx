@@ -29,6 +29,7 @@ import {
 } from "formik";
 import { IState } from "src/shared/store";
 import * as Actions from "../actions";
+import FormFeedback from "reactstrap/lib/FormFeedback";
 
 interface DispatchProps {
   onSubmit: (
@@ -63,12 +64,104 @@ const Register: StatelessComponent<Props> = ({
                   </InputGroupAddon>
                   <Input
                     type="text"
-                    placeholder="Username"
-                    autoComplete="username"
-                    name="userName"
+                    placeholder="Surname"
+                    autoComplete="Surname"
+                    name="Surname"
                     tag={Field}
-                    invalid={Boolean(errors.userName && touched.userName)}
-                    value={values.userName}
+                    invalid={Boolean(errors.Surname && touched.Surname)}
+                    value={values.Surname}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  <FormFeedback tooltip={true}>{errors.Surname}</FormFeedback>
+                  <Input
+                    type="text"
+                    placeholder="Family Name"
+                    autoComplete="FamilyName"
+                    name="FamilyName"
+                    tag={Field}
+                    invalid={Boolean(errors.FamilyName && touched.FamilyName)}
+                    value={values.FamilyName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                </InputGroup>
+                <InputGroup className="mb-3">
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>@</InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    type="text"
+                    placeholder="DateOfBirth"
+                    autoComplete="DateOfBirth"
+                    name="DateOfBirth"
+                    tag={Field}
+                    invalid={Boolean(errors.DateOfBirth && touched.DateOfBirth)}
+                    value={values.DateOfBirth}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                </InputGroup>
+                <InputGroup className="mb-3">
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>@</InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    type="text"
+                    placeholder="Gender"
+                    autoComplete="gender"
+                    name="gender"
+                    tag={Field}
+                    invalid={Boolean(errors.gender && touched.gender)}
+                    value={values.gender}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                </InputGroup>
+                <InputGroup className="mb-3">
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>@</InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    type="text"
+                    placeholder="Nationality"
+                    autoComplete="Nationality"
+                    name="nationality"
+                    tag={Field}
+                    invalid={Boolean(errors.nationality && touched.nationality)}
+                    value={values.nationality}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                </InputGroup>
+                <InputGroup className="mb-3">
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>@</InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    type="text"
+                    placeholder="phone Number"
+                    autoComplete="phoneNumber"
+                    name="phoneNumber"
+                    tag={Field}
+                    invalid={Boolean(errors.phoneNumber && touched.phoneNumber)}
+                    value={values.phoneNumber}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                </InputGroup>
+                <InputGroup className="mb-3">
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>@</InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    type="text"
+                    placeholder="Address"
+                    autoComplete="address"
+                    name="address"
+                    tag={Field}
+                    invalid={Boolean(errors.address && touched.address)}
+                    value={values.address}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -88,6 +181,7 @@ const Register: StatelessComponent<Props> = ({
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  <FormFeedback tooltip={true}>{errors.email}</FormFeedback>
                 </InputGroup>
                 <InputGroup className="mb-3">
                   <InputGroupAddon addonType="prepend">
@@ -106,6 +200,7 @@ const Register: StatelessComponent<Props> = ({
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  <FormFeedback tooltip={true}>{errors.cin}</FormFeedback>
                 </InputGroup>
                 <InputGroup className="mb-3">
                   <InputGroupAddon addonType="prepend">
@@ -124,6 +219,7 @@ const Register: StatelessComponent<Props> = ({
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  <FormFeedback tooltip={true}>{errors.password}</FormFeedback>
                 </InputGroup>
                 <InputGroup className="mb-4">
                   <InputGroupAddon addonType="prepend">
@@ -144,22 +240,19 @@ const Register: StatelessComponent<Props> = ({
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  <FormFeedback tooltip={true}>
+                    {errors.confirmPassword}
+                  </FormFeedback>
                 </InputGroup>
-                <Button color="success">Create Account</Button>
+                <Button color="success" type="submit">
+                  Create Account
+                </Button>
               </Form>
             </CardBody>
             <CardFooter className="p-4">
               <Row>
-                <Col xs="12" sm="6">
-                  <Button className="btn-facebook mb-1">
-                    <span>facebook</span>
-                  </Button>
-                </Col>
-                <Col xs="12" sm="6">
-                  <Button className="btn-twitter mb-1">
-                    <span>twitter</span>
-                  </Button>
-                </Col>
+                <Col xs="12" sm="6" />
+                <Col xs="12" sm="6" />
               </Row>
             </CardFooter>
           </Card>
@@ -179,9 +272,15 @@ const mapDispatchToProps: MapDispatchToProps<{}, {}> = (
 const RegisterWithFormik = withFormik<DispatchProps, IRegisterCredentials>({
   validationSchema,
   mapPropsToValues: () => ({
-    userName: "",
+    Surname: "",
+    FamilyName: "",
+    DateOfBirth: "",
+    gender: "",
+    nationality: "",
+    phoneNumber: "",
+    address: "",
     email: "",
-    cin: 0,
+    cin: "",
     password: "",
     confirmPassword: ""
   }),

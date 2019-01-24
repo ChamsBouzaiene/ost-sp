@@ -36,10 +36,10 @@ const Application: StatelessComponent<Props> = ({
   state
 }) => (
   <div className="app d-flex flex-row align-items-center my-register-row">
-    <Container>
-      <Row className="justify-content-center">
-        <Col md="9" lg="7" xl="6">
-          <Card className="mx-4">
+    <Container className="application-container">
+      <Row className="justify-content-center application-row">
+        <Col md="12" lg="12" xl="12">
+          <Card>
             <CardBody className="p-4">
               <Form>
                 <h1>Application</h1>
@@ -55,7 +55,7 @@ const Application: StatelessComponent<Props> = ({
                           </InputGroupText>
                         </InputGroupAddon>
                         <Input
-                          type="text"
+                          type="textarea"
                           placeholder="Answer...."
                           autoComplete="questionOne"
                           name={id.toString()}
@@ -64,6 +64,38 @@ const Application: StatelessComponent<Props> = ({
                       </InputGroup>
                     </React.Fragment>
                   ))}
+                <Row>
+                  <Col md="6" lg="6" xl="6">
+                    <span>
+                      Before submitting your application check the boxes below:{" "}
+                    </span>
+                    <label className="container">
+                      You are currently a student in Tunisia(Undergraduate,
+                      graduate, PHD.)
+                      <input type="checkbox" />
+                      <span className="checkmark" />
+                    </label>
+                    <label className="container">
+                      You are available in all key date listed above.
+                      <input type="checkbox" />
+                      <span className="checkmark" />
+                    </label>
+                    <label className="container">
+                      I hereby certify that all the information given in this
+                      application is true.
+                      <input type="checkbox" />
+                      <span className="checkmark" />
+                    </label>
+                    {/* <InputGroupText>
+                      <Input
+                        addon={true}
+                        type="checkbox"
+                        value={"ttttttttttttttt"}
+                      />
+                      
+                    </InputGroupText> */}
+                  </Col>
+                </Row>
                 <Link to="/application/confirmed">
                   <Button
                     className="submit-btn"

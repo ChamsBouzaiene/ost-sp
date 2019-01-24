@@ -24,13 +24,20 @@ const RegisterLink = () => (
 interface TOwnProps {}
 interface TStateProps {
   userId: number;
-  userFirstName: string;
+  useruniversity: string;
   isSubmited: boolean;
+  userEmail: string;
 }
 
 type Props = TStateProps;
 
 class Home extends React.Component<Props> {
+  componentDidMount() {
+    if (!this.props.isSubmited) {
+      console.log(this.props.useruniversity);
+    }
+  }
+
   public render() {
     return (
       <div className="App">
@@ -61,9 +68,10 @@ class Home extends React.Component<Props> {
                     <p>secondes</p>
                   </div>
                 </div>
+
                 {this.props.userId ? (
-                  this.props.userFirstName ? (
-                    <ApplicationLink /> && !this.props.isSubmited
+                  this.props.useruniversity ? (
+                    <ApplicationLink />
                   ) : (
                     <ProfileLink />
                   )
@@ -122,8 +130,8 @@ const MapStateToProp: MapStateToProps<TStateProps, TOwnProps, IState> = (
 ) => ({
   userId: state.auth.userId,
   userEmail: (state.auth.currentuser || {}).email,
-  userFirstName: (state.auth.currentuser || {}).firstName,
-  isSubmited: (state.auth.currentuser || {}).submit
+  useruniversity: (state.auth.currentuser || {}).university,
+  isSubmited: (state.auth.currentuser || {}).submited
 });
 
 export default connect(

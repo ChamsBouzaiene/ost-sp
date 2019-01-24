@@ -68,5 +68,9 @@
   "SuperUser": {
     "dataSource": "db",
     "public": true
+  },
+  "FileAttachement": {
+    "dataSource": "myfile",
+    "public": true
   }
 }

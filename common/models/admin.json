@@ -30,10 +30,16 @@
       "property": "count"
     },
     {
-      "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "ADMIN",
-      "permission": "ALLOW"
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
     }
   ],
   "methods": {}

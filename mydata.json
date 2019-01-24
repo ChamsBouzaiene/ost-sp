@@ -1,14 +1,14 @@
 {
   "ids": {
     "User": 2,
-    "AccessToken": 71,
+    "AccessToken": 74,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
     "selector": 2,
-    "assesment": 6,
-    "candidate": 19,
-    "answer": 71,
+    "assesment": 18,
+    "candidate": 20,
+    "answer": 83,
     "grade": 2,
     "Admin": 2
   },
@@ -53,7 +53,10 @@
       "GTvhKuBGMEPcuxA8gSDBzXR3rwM4ytDpeVvcNPtAMqQKBhjiCQcuUu9aXfcGvp83": "{\"id\":\"GTvhKuBGMEPcuxA8gSDBzXR3rwM4ytDpeVvcNPtAMqQKBhjiCQcuUu9aXfcGvp83\",\"ttl\":1209600,\"created\":\"2019-01-07T20:45:46.500Z\",\"userId\":16}",
       "SXEnKV21GZADipp101a1HWyQfAXCWgShXaMrwUVNDQKjQzEEot1UJzw2ODKTCKzq": "{\"id\":\"SXEnKV21GZADipp101a1HWyQfAXCWgShXaMrwUVNDQKjQzEEot1UJzw2ODKTCKzq\",\"ttl\":1209600,\"created\":\"2019-01-07T22:40:04.218Z\",\"userId\":16}",
       "EpKbZFVzLbq4wsSomXMndet35U7l7xcxG42Q2gyNl3q6AfWUsJ7m4TpHTauKczsF": "{\"id\":\"EpKbZFVzLbq4wsSomXMndet35U7l7xcxG42Q2gyNl3q6AfWUsJ7m4TpHTauKczsF\",\"ttl\":1209600,\"created\":\"2019-01-07T23:04:39.800Z\",\"userId\":16}",
-      "HZ97MURoz1B3vfW2PctlbBQEVccqOmHIziVYygHy0WsGJweTPzohLCQMDyasUQd2": "{\"id\":\"HZ97MURoz1B3vfW2PctlbBQEVccqOmHIziVYygHy0WsGJweTPzohLCQMDyasUQd2\",\"ttl\":1209600,\"created\":\"2019-01-11T11:23:04.026Z\",\"userId\":1}"
+      "HZ97MURoz1B3vfW2PctlbBQEVccqOmHIziVYygHy0WsGJweTPzohLCQMDyasUQd2": "{\"id\":\"HZ97MURoz1B3vfW2PctlbBQEVccqOmHIziVYygHy0WsGJweTPzohLCQMDyasUQd2\",\"ttl\":1209600,\"created\":\"2019-01-11T11:23:04.026Z\",\"userId\":1}",
+      "ViaoqWz02rIcYRN60oJkA79vEMS496k122GmiAQI1uNljfvf8bAPSHwrnhpZXhMY": "{\"id\":\"ViaoqWz02rIcYRN60oJkA79vEMS496k122GmiAQI1uNljfvf8bAPSHwrnhpZXhMY\",\"ttl\":1209600,\"created\":\"2019-01-21T09:58:23.722Z\",\"userId\":19}",
+      "9ZbBW5nIE5V6WUOeGvXoZ7x188qTIZatB5uE6JIcNbsoVS4GTQANnowG0zq7Q8rB": "{\"id\":\"9ZbBW5nIE5V6WUOeGvXoZ7x188qTIZatB5uE6JIcNbsoVS4GTQANnowG0zq7Q8rB\",\"ttl\":1209600,\"created\":\"2019-01-22T09:22:19.680Z\",\"userId\":19}",
+      "8Y2cjCyNsUZmNw3fWCGcJLc2O84fPg0KsAG6p0xoLitzqzph5ZcFWYmq6IcfLSdS": "{\"id\":\"8Y2cjCyNsUZmNw3fWCGcJLc2O84fPg0KsAG6p0xoLitzqzph5ZcFWYmq6IcfLSdS\",\"ttl\":1209600,\"created\":\"2019-01-23T23:49:58.249Z\",\"userId\":1}"
     },
     "ACL": {},
     "RoleMapping": {},
@@ -62,11 +65,18 @@
       "1": "{\"firstName\":\"slector\",\"lastName\":\"sdfdf\",\"age\":\"58\",\"work\":\"sdf\",\"realm\":\"sdf\",\"username\":\"sdf\",\"password\":\"$2a$10$f0TV85Agh2AjtW1DBzSBReaKncVksToxQRVDn61dIIUXKIZf3N/pq\",\"email\":\"selctort@gmail.com\",\"emailVerified\":false,\"id\":1}"
     },
     "assesment": {
-      "1": "{\"question\":\"What the fuck happened\",\"recommandation\":\"give him 10\",\"grade\":10,\"id\":1}",
-      "2": "{\"question\":\"What is your company in 2–5 words?\",\"recommandation\":\"u have only one choice\",\"grade\":5,\"id\":2}",
-      "3": "{\"question\":\"Why is now the time for your company to exist?\",\"recommandation\":\"u have only the one one two three jezzaayr choice\",\"grade\":7,\"id\":3}",
-      "4": "{\"question\":\"What do you love about your team, and why are you the ones to solve this problem?\",\"recommandation\":\"mn3rfch lol lol\",\"grade\":7,\"id\":4}",
-      "5": "{\"question\":\"If you weren’t building your startup, what would you be doing?\",\"recommandation\":\"yes yes yes\",\"grade\":8,\"id\":5}"
+      "6": "{\"question\":\"Have you already launched a startup? \",\"recommandation\":\"0 if no, 5 if yes \",\"grade\":5,\"id\":6}",
+      "7": "{\"question\":\"Have you participated in any entrepreneurship competition(s) (Hult, Enactus...) \",\"recommandation\":\"0 if no, 7.5 if yes\",\"grade\":5,\"id\":7}",
+      "8": "{\"question\":\"Have you participated in any other entrepreneurship trainings? (online course, university course, professional training...)\",\"recommandation\":\"0 if no, 7.5 if yes\",\"grade\":5,\"id\":8}",
+      "9": "{\"question\":\"Are you involved in any entrepreneurial activity? (entrepreneurship club, organization.. ) \",\"recommandation\":\"0 if no, 5 if yes\",\"grade\":5,\"id\":9}",
+      "10": "{\"question\":\"Do you have extra-curricular activities? (Member of a charity organization, cultural activity...) \",\"recommandation\":\"0 if no, 5 if yes\",\"grade\":5,\"id\":10}",
+      "11": "{\"question\":\"Please describe an outstanding skill you have (IT, design, marketing, web-design, finance...), tell us about an experience where we you were able to apply this skill (obtained a certificate, contributed to a project...). Also, highlight how this skill will help you contribute to a team work. (Max 500 words) \",\"recommandation\":\"This is an essay question, the student should have been able to demonstrate a specific skill and clearly illustrated it wih clear examples. The skills mentioned should be compatible with those mentioned in the cv. \",\"grade\":30,\"id\":11}",
+      "12": "{\"question\":\"Put a link to a youtube video  where you respond to the question: Why should we select you?\",\"recommandation\":\"In this section, assign a grade from 1 to 10 to access the communication skills of the candidate. This inludes both verbal and non verbal skills .\",\"grade\":10,\"id\":12}",
+      "13": "{\"question\":\"Put a link to a youtube video  where you respond to the question: Why should we select you?\",\"recommandation\":\"In this section, assign a grade from 1 to 10 to access the english proffeciency. Is the candidate able to form correct sentences, are they easy to understand? Do they have a clear accent? .\",\"grade\":10,\"id\":13}",
+      "14": "{\"question\":\"Put a link to a youtube video  where you respond to the question: Why should we select you?\",\"recommandation\":\"Referring to both the application and the video, please access the candidate's effort to make a high quality video .\",\"grade\":15,\"id\":14}",
+      "15": "{\"question\":\"Referring to the whole application + video ?\",\"recommandation\":\"Referring to both the application and the video, please access the candidate's effort to respond to the questions .\",\"grade\":10,\"id\":15}",
+      "16": "{\"question\":\"What is the problem you are solving? ( 250 words)\",\"recommandation\":\"Bonus question .\",\"grade\":10,\"id\":16}",
+      "17": "{\"question\":\"Tell us about the solution you are proposing ( 250 words) \",\"recommandation\":\"Bonus question .\",\"grade\":10,\"id\":17}"
     },
     "candidate": {
       "1": "{\"firstName\":\"string\",\"lastName\":\"string\",\"age\":\"string\",\"field\":\"qsdsd\",\"realm\":\"string\",\"username\":\"string\",\"password\":\"$2a$10$uBlAKHgivFN7spHCC7AAmuGfZWcg0szz6QwjHjlW/rrM9P4FBTR1.\",\"email\":\"can@gmail.com\",\"emailVerified\":false,\"id\":1,\"selectorId\":1}",
@@ -86,7 +96,8 @@
       "15": "{\"cin\":7223213404,\"password\":\"$2a$10$OX4G0Pby0RTOIxYDwIeg5eo5VGwcWtfX1i.gdb4O2VLgij7SyuA9e\",\"email\":\"jesus@yopmail.com\",\"id\":15,\"verificationToken\":\"b2b3b330756d74f83d607ef586d09f744eda5c02bc5c45f28483f9375ee99adac4c2b54369c629ee3a88f47923feaa88c0c043fc9b4aba6983a7ca5fec8567b3\"}",
       "16": "{\"cin\":722321304,\"password\":\"$2a$10$e0D.MU94cguJ6SujOQctBeZFnoIR0GiyYpPpiSlOXPTMMmFDB1U/y\",\"email\":\"jesus2@yopmail.com\",\"id\":16,\"verificationToken\":null,\"emailVerified\":true,\"picture\":\"dsgsdfsdf\",\"firstName\":\"3iljya\",\"lastName\":\"mahrzya\",\"fieldofStudy\":\"7jéma\",\"age\":\"53\",\"university\":\"mb\",\"region\":\"nassr\",\"submited\":true}",
       "17": "{\"cin\":12345278,\"password\":\"$2a$10$5D8mkQZA7yRQ1uMuHKrFiuu.IiSAiijbt7T8ztCYCN4nf22n1.lr.\",\"email\":\"asma@yopmail.com\",\"userName\":\"asma\",\"confirmPassword\":\"12345678\",\"id\":17,\"verificationToken\":null,\"emailVerified\":true,\"picture\":\"sdfsqdf\",\"firstName\":\"qsdfsqd\",\"lastName\":\"sqdfsdf\",\"fieldofStudy\":\"dsfsdfqsfqsfd\",\"age\":\"12\",\"university\":\"qsdfs\",\"region\":\"sqdfsqdfs\"}",
-      "18": "{\"cin\":17894135,\"submited\":false,\"password\":\"$2a$10$eBD6o9ae.9gncAZJinYWUuF434j4j.HEFvVzbWx5r6pzXYCYoPwGi\",\"email\":\"ololo@yopmail.com\",\"userName\":\"ololo\",\"confirmPassword\":\"12345678\",\"id\":18,\"verificationToken\":null,\"emailVerified\":true,\"picture\":\"sdfsdf\",\"firstName\":\"sdfsdfdfsf\",\"lastName\":\"sdfsd\",\"fieldofStudy\":\"sdfsdf\",\"age\":\"10\",\"university\":\"sdfsdf\",\"region\":\"sdfsdf\"}"
+      "18": "{\"cin\":17894135,\"submited\":false,\"password\":\"$2a$10$eBD6o9ae.9gncAZJinYWUuF434j4j.HEFvVzbWx5r6pzXYCYoPwGi\",\"email\":\"ololo@yopmail.com\",\"userName\":\"ololo\",\"confirmPassword\":\"12345678\",\"id\":18,\"verificationToken\":null,\"emailVerified\":true,\"picture\":\"sdfsdf\",\"firstName\":\"sdfsdfdfsf\",\"lastName\":\"sdfsd\",\"fieldofStudy\":\"sdfsdf\",\"age\":\"10\",\"university\":\"sdfsdf\",\"region\":\"sdfsdf\"}",
+      "19": "{\"Surname\":\"mohsin\",\"FamilyName\":\"mssrnou toj3\",\"DateOfBirth\":\"2015-12-04T23:00:00.000Z\",\"cin\":\"12345647\",\"gender\":\"Male\",\"nationality\":\"Tounsi\",\"address\":\"wld 7ay lbsstin\",\"phoneNumber\":\"22031249\",\"submited\":true,\"password\":\"$2a$10$6L.vjtz.YXs4r2ZnaWQ..uVX2.SXrEMJoUQAxZI3K2b.A4Lee/AVq\",\"email\":\"mohsin@yopmail.com\",\"confirmPassword\":\"12345678\",\"id\":19,\"verificationToken\":null,\"emailVerified\":true,\"recomendationCode\":\"sdfsqdf\",\"facebookLink\":\"sfsdfsd\",\"validUniCertificate\":\"No\",\"major\":\"Other\",\"levelOfstudies\":\"Level Of Studies\",\"validPassport\":\"No\",\"university\":\"FSEGT\",\"region\":\"Beja\",\"dates\":true,\"avatar\":\"86094961-13b1-4d84-bc20-2bd280a79cbd.jpeg\",\"resume\":\"2537c945-63d7-4ff2-a942-72ff1d755f4e.pdf\",\"bio\":\"qsdfsqdfqsdf\"}"
     },
     "answer": {
       "1": "{\"answer\":\"this is my answer\",\"assessmentId\":1,\"candidateId\":1,\"id\":1}",
@@ -158,7 +169,19 @@
       "67": "{\"answer\":\"sdf\",\"assessmentId\":4,\"candidateId\":18,\"id\":67}",
       "68": "{\"answer\":\"sdfds\",\"assessmentId\":3,\"candidateId\":18,\"id\":68}",
       "69": "{\"answer\":\"fdsfsdf\",\"assessmentId\":5,\"candidateId\":18,\"id\":69}",
-      "70": "{\"answer\":\"fsdf\",\"assessmentId\":1,\"candidateId\":18,\"id\":70}"
+      "70": "{\"answer\":\"fsdf\",\"assessmentId\":1,\"candidateId\":18,\"id\":70}",
+      "71": "{\"answer\":\"No\",\"assessmentId\":6,\"candidateId\":19,\"id\":71}",
+      "72": "{\"answer\":\"No\",\"assessmentId\":7,\"candidateId\":19,\"id\":72}",
+      "73": "{\"answer\":\"yes gomycode\",\"assessmentId\":8,\"candidateId\":19,\"id\":73}",
+      "74": "{\"answer\":\"no\",\"assessmentId\":9,\"candidateId\":19,\"id\":74}",
+      "75": "{\"answer\":\"https://www.youtube.com/watch?v=1-wb9ddKsDE\",\"assessmentId\":12,\"candidateId\":19,\"id\":75}",
+      "76": "{\"answer\":\"yes , fi jm3yit sa7bi hichem\",\"assessmentId\":10,\"candidateId\":19,\"id\":76}",
+      "77": "{\"answer\":\"https://www.youtube.com/watch?v=1-wb9ddKsDE\",\"assessmentId\":13,\"candidateId\":19,\"id\":77}",
+      "78": "{\"answer\":\"i am very proficient in it and development, in the keyboard\",\"assessmentId\":11,\"candidateId\":19,\"id\":78}",
+      "79": "{\"answer\":\"https://www.youtube.com/watch?v=1-wb9ddKsDE\",\"assessmentId\":14,\"candidateId\":19,\"id\":79}",
+      "80": "{\"answer\":\"your shitty website\",\"assessmentId\":16,\"candidateId\":19,\"id\":80}",
+      "81": "{\"answer\":\"https://www.youtube.com/watch?v=1-wb9ddKsDE\",\"assessmentId\":15,\"candidateId\":19,\"id\":81}",
+      "82": "{\"answer\":\"use templates and some shitty code\",\"assessmentId\":17,\"candidateId\":19,\"id\":82}"
     },
     "grade": {
       "1": "{\"grade\":\"9\",\"assesmentId\":1,\"answerId\":1,\"id\":1}"

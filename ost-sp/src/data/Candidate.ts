@@ -1,31 +1,33 @@
 export default interface ICandidate {
   id?: number;
+  Surname: string;
+  FamilyName: string;
+  DateOfBirth: Date;
+  cin: string;
   email: string;
-  firstName: string;
-  lastName: string;
-  age: number;
   submited?: boolean;
   selectorId?: number;
   field: string;
-}
-
-export enum Candidate_enum {
-  email = "Email",
-  firstName = "First Name",
-  lastName = "Last Name",
-  selectorId = "Selector",
-  field = "Field",
-  age = "Age"
+  Gender: string;
+  Nationality: string;
+  address: string;
+  PhoneNumber: string;
+  avatar: string;
+  resume: string;
 }
 
 export const Candidate = [
   {
-    firstName: "First Name",
-    lastName: "Last Name",
+    Surname: "Surname",
+    FamilyName: "Family Name",
+    DateOfBirth: "Date Of Birth",
+    Gender: "Gender",
+    cin: "CIN",
     email: "Email",
     selectorId: "Selector",
     field: "Field",
-    age: "Age",
-    cin: "CIN"
+    nationality: "Nationality",
+    address: "Address",
+    PhoneNumber: "Phone Number"
   }
 ];

@@ -2,23 +2,30 @@ import * as yup from "yup";
 import { isRequired } from "./errors";
 
 export const validationSchema = yup.object().shape({
-  picture: yup.string().required(isRequired("picture")),
-  firstName: yup.string().required(isRequired("firstName")),
-  lastName: yup.string().required(isRequired("lastName")),
-  age: yup.string().required(isRequired("age")),
-  fieldofStudy: yup.string().required(isRequired("fieldofStudy")),
+  facebookLink: yup.string().required(isRequired("facebook Link")),
+  major: yup.string().required(isRequired("Major")),
+  levelOfstudies: yup.string().required(isRequired("Level of studies")),
   university: yup.string().required(isRequired("university")),
-  region: yup.string().required(isRequired("region"))
+  region: yup.string().required(isRequired("region")),
+  dates: yup.boolean().required(isRequired("dates")),
+  validPassport: yup.string().required(isRequired("validPassport")),
+  validUniCertificate: yup.string().required(isRequired("validUniCertificate")),
+
+  bio: yup.string().required(isRequired("bio"))
 });
 
 interface IProfileCredentials {
-  picture: string;
-  firstName: string;
-  lastName: string;
-  fieldofStudy: string;
-  age: string;
+  facebookLink: string;
+  major: string;
+  levelOfstudies: string;
   university: string;
   region: string;
+  dates: boolean;
+  validPassport: string;
+  validUniCertificate: string;
+  recomendationCode: string;
+
+  bio: string;
 }
 
 export default IProfileCredentials;

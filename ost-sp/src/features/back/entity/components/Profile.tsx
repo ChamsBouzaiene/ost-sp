@@ -12,6 +12,13 @@ import Avatar from "@material-ui/core/Avatar";
 //import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
+import { API_URL } from "src/data/Api";
+import "./Profile.css";
+//import { Link } from "react-router-dom";
+
+const getAvatarLink = (value: any) => {
+  return API_URL + "/attachements/container/download/" + value;
+};
 
 const styles = ({ palette, spacing }: Theme) =>
   createStyles({
@@ -62,11 +69,16 @@ class Profile extends React.Component<Props> {
             <Paper className={classes.paper}>
               <Grid container={true} spacing={0}>
                 <Grid item={true} xs={12} sm={6} md={4}>
-                  <Avatar
-                    alt="Remy Sharp"
-                    src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-round-1/254000/19-512.png"
-                    className={classes.bigAvatar}
-                  />
+                  <div className="avatar-col">
+                    <Avatar
+                      alt="Remy Sharp"
+                      src={entity && getAvatarLink(entity.avatar)}
+                      className={classes.bigAvatar}
+                    />
+                    <a href={entity ? getAvatarLink(entity.resume) : "/404"}>
+                      Resume
+                    </a>
+                  </div>
                 </Grid>
                 <Grid item={true} xs={12} sm={6} md={8}>
                   <Typography
