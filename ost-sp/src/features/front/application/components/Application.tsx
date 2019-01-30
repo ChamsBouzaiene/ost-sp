@@ -24,16 +24,20 @@ interface TOwnProps {
   questions: IQuestion[];
   handleUserInput: (e: any) => void;
   handleSubmit: (url: string, state: object, userId: string) => void;
+  handleSelect: (e: any) => void;
   userId: any;
   state: any;
+  handleNoOption: (value: any) => void;
 }
 
 const Application: StatelessComponent<Props> = ({
   questions,
   handleUserInput,
+  handleSelect,
   handleSubmit,
   userId,
-  state
+  state,
+  handleNoOption
 }) => (
   <div className="app d-flex flex-row align-items-center my-register-row">
     <Container className="application-container">
@@ -45,27 +49,54 @@ const Application: StatelessComponent<Props> = ({
                 <h1>Application</h1>
                 <p className="text-muted">Answer this questions</p>
                 {questions &&
-                  questions.map(({ id, question }) => (
-                    <React.Fragment>
-                      <p key={id}>{question}</p>
-                      <InputGroup className="mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="far fa-lightbulb" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input
-                          type="textarea"
-                          placeholder="Answer...."
-                          autoComplete="questionOne"
-                          name={id.toString()}
-                          onChange={e => handleUserInput(e)}
-                        />
-                      </InputGroup>
-                    </React.Fragment>
-                  ))}
+                  questions.map(({ id, question }) => {
+                    if (!question.includes("video")) {
+                      return (
+                        <React.Fragment>
+                          <p key={id}>{question}</p>
+                          <InputGroup className="mb-3">
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="fas fa-university" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+
+                            <Input
+                              type="select"
+                              name={id.toString() + " optionstester"}
+                              id="levelOfstudies"
+                              placeholder="majors"
+                              onChange={e => handleSelect(e)}
+                              autoComplete="major"
+                            >
+                              {["No", "Yes"].map((el, id) => (
+                                <option key={id}>{el}</option>
+                              ))}
+                            </Input>
+                          </InputGroup>
+                          {state[`${id} optionstester`] === "Yes" ? (
+                            <InputGroup className="mb-3">
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  <i className="far fa-lightbulb" />
+                                </InputGroupText>
+                              </InputGroupAddon>
+                              <Input
+                                type="textarea"
+                                placeholder="Answer...."
+                                autoComplete="questionOne"
+                                name={id.toString()}
+                                onChange={e => handleUserInput(e)}
+                              />
+                            </InputGroup>
+                          ) : null}
+                        </React.Fragment>
+                      );
+                    }
+                    return null;
+                  })}
                 <Row>
-                  <Col md="6" lg="6" xl="6">
+                  <Col md="8" lg="8" xl="8">
                     <span>
                       Before submitting your application check the boxes below:{" "}
                     </span>
@@ -96,7 +127,7 @@ const Application: StatelessComponent<Props> = ({
                     </InputGroupText> */}
                   </Col>
                 </Row>
-                <Link to="/application/confirmed">
+                <Link to="/">
                   <Button
                     className="submit-btn"
                     type="button"

@@ -10,8 +10,12 @@ export const validationSchema = yup.object().shape({
   dates: yup.boolean().required(isRequired("dates")),
   validPassport: yup.string().required(isRequired("validPassport")),
   validUniCertificate: yup.string().required(isRequired("validUniCertificate")),
-
-  bio: yup.string().required(isRequired("bio"))
+  DateOfBirth: yup.string().required(isRequired("Date Of Birth")),
+  gender: yup.string().required(isRequired("Gender")),
+  nationality: yup.string().required(isRequired("Nationality")),
+  address: yup.string().required(isRequired("address")),
+  phoneNumber: yup.string().required(isRequired("phoneNumber")),
+  recomendationCode: yup.string()
 });
 
 interface IProfileCredentials {
@@ -24,8 +28,12 @@ interface IProfileCredentials {
   validPassport: string;
   validUniCertificate: string;
   recomendationCode: string;
-
-  bio: string;
+  DateOfBirth: string;
+  gender: string;
+  nationality: string;
+  address: string;
+  phoneNumber: string;
+  step: number;
 }
 
 export default IProfileCredentials;

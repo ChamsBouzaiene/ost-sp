@@ -72,7 +72,11 @@ class Profile extends React.Component<Props> {
                   <div className="avatar-col">
                     <Avatar
                       alt="Remy Sharp"
-                      src={entity && getAvatarLink(entity.avatar)}
+                      src={
+                        entity && entity.avatar
+                          ? getAvatarLink(entity.avatar)
+                          : "https://www.w3schools.com/howto/img_avatar.png"
+                      }
                       className={classes.bigAvatar}
                     />
                     <a href={entity ? getAvatarLink(entity.resume) : "/404"}>

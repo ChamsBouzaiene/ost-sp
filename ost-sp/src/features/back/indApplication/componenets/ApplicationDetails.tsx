@@ -72,10 +72,10 @@ class Details extends React.Component<Props> {
         <TableBody>
           <TableRow className={classes.row}>
             <CustomTableCell align="left" component="th" scope="row">
-              what the fuck is this shitty website ?
+              Questions
             </CustomTableCell>
             <CustomTableCell align="left" component="th" scope="row">
-              I dont fucking know
+              I know !!
             </CustomTableCell>
             <CustomTableCell align="left" component="th" scope="row">
               2/10

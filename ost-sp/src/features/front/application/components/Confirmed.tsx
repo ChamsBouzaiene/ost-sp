@@ -12,7 +12,8 @@ interface ForgotMyPasswordProps {
   onDidMount: () => void;
 }
 
-class Verify extends Component<ForgotMyPasswordProps> {
+type Props = ForgotMyPasswordProps & State;
+class Verify extends Component<Props> {
   componentDidMount() {
     setTimeout(this.props.onDidMount, 10000);
 
@@ -25,11 +26,15 @@ class Verify extends Component<ForgotMyPasswordProps> {
       }
       return Promise.resolve(savedToken || {});
     };
+
+    //Send Email To candidate to tell him that the application is confirmed
     initAuth().then(savedToken =>
       Axios.post(`${API_URL}/assesments/applied`, {
         email: savedToken.id
       })
     );
+
+    //Patch the atribute patch to true
     initAuth().then(savedToken =>
       Axios.patch(`${API_URL}/candidates/${savedToken.userId}`, {
         submited: true
@@ -53,7 +58,9 @@ interface OwnDispatchProps {
   onDidMount: () => void;
 }
 
-interface State {}
+interface State {
+  userEmail: any;
+}
 
 interface OwnProps {}
 

@@ -8,7 +8,6 @@ import {
   CardBody,
   CardGroup,
   Col,
-  Container,
   Form,
   Input,
   InputGroup,
@@ -63,57 +62,51 @@ class Forgot extends Component<ForgotMyPasswordProps> {
   render() {
     return (
       <div className="app  flex-row align-items-center">
-        <Container>
-          <Row className="justify-content-center">
-            <Col md="8">
-              <CardGroup>
-                <Card className="p-4">
-                  <CardBody>
-                    <Form onSubmit={this.handleSubmit}>
-                      {this.state.res && (
-                        <Alert color="success">{this.state.res}</Alert>
-                      )}
+        <Row className="justify-content-center patch">
+          <Col md="8">
+            <CardGroup>
+              <Card className="p-4">
+                <CardBody>
+                  <Form onSubmit={this.handleSubmit}>
+                    {this.state.res && (
+                      <Alert color="success">{this.state.res}</Alert>
+                    )}
+                    {this.state.error && (
+                      <Alert color="danger">{this.state.error}</Alert>
+                    )}
+                    <h1>Forgot</h1>
+                    <p className="text-muted">Forgot my password</p>
+                    <InputGroup className="mb-3">
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="icon-user" />
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        invalid={Boolean(this.state.error)}
+                        onChange={event => this.handleChange(event as any)}
+                        name="email"
+                        type="text"
+                      />
                       {this.state.error && (
-                        <Alert color="danger">{this.state.error}</Alert>
+                        <FormFeedback tooltip={true}>
+                          {this.state.error}
+                        </FormFeedback>
                       )}
-                      <h1>Forgot</h1>
-                      <p className="text-muted">Forgot my password</p>
-                      <InputGroup className="mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="icon-user" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input
-                          invalid={Boolean(this.state.error)}
-                          onChange={event => this.handleChange(event as any)}
-                          name="email"
-                          type="text"
-                        />
-                        {this.state.error && (
-                          <FormFeedback tooltip={true}>
-                            {this.state.error}
-                          </FormFeedback>
-                        )}
-                      </InputGroup>
-                      <Row>
-                        <Col xs="6">
-                          <Button
-                            color="primary"
-                            className="px-4"
-                            type="submit"
-                          >
-                            Send Email
-                          </Button>
-                        </Col>
-                      </Row>
-                    </Form>
-                  </CardBody>
-                </Card>
-              </CardGroup>
-            </Col>
-          </Row>
-        </Container>
+                    </InputGroup>
+                    <Row>
+                      <Col xs="6">
+                        <Button color="primary" className="px-4" type="submit">
+                          Send Email
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Form>
+                </CardBody>
+              </Card>
+            </CardGroup>
+          </Col>
+        </Row>
       </div>
     );
   }

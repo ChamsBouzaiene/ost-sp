@@ -16,8 +16,8 @@
       "required": true
     },
     "DateOfBirth": {
-      "type": "date",
-      "required": true
+      "type": "string",
+      "required": false
     },
     "cin": {
       "type": "string",
@@ -25,19 +25,19 @@
     },
     "gender": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "nationality": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "address": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "phoneNumber": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "major": {
       "type": "string",
@@ -90,6 +90,12 @@
     },
     "selectorId": {
       "type": "number"
+    },
+    "step": {
+      "type": "number"
+    },
+    "cinPicture": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -116,7 +122,7 @@
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
-      "property": "count"
+      "property": "*"
     },
     {
       "principalType": "ROLE",

@@ -93,6 +93,7 @@ class List extends React.Component<Props> {
                 ))}
             </TableBody>
           </Table>
+          {this.props.children}
         </Paper>
       </div>
     );

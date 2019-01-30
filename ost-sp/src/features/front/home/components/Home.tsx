@@ -1,18 +1,29 @@
 import * as React from "react";
 import "./Home.css";
 import Header from "../../../../shared/components/Header/Header";
+import Stepper from "../../../../shared/components/Stepper";
 import { Link } from "react-router-dom";
 import { MapStateToProps, connect } from "react-redux";
 import { IState } from "src/shared/store";
 
 const ProfileLink = () => (
   <Link to="/profile" className="application-btn">
-    <i className="fab fa-telegram-plane" /> Create A Profile
+    <i className="fab fa-telegram-plane" /> Apply now
   </Link>
 );
 const ApplicationLink = () => (
   <Link to="/application" className="application-btn">
-    <i className="fab fa-telegram-plane" /> Start The Application
+    <i className="fab fa-telegram-plane" /> Apply now
+  </Link>
+);
+const MoreInfo = () => (
+  <Link to="/profile/more-info" className="application-btn">
+    <i className="fab fa-telegram-plane" /> Apply now
+  </Link>
+);
+const Video = () => (
+  <Link to="/profile/video" className="application-btn">
+    <i className="fab fa-telegram-plane" /> Apply now
   </Link>
 );
 const RegisterLink = () => (
@@ -25,8 +36,24 @@ interface TOwnProps {}
 interface TStateProps {
   userId: number;
   useruniversity: string;
+  userStep: string;
   isSubmited: boolean;
   userEmail: string;
+}
+
+function getStepContent(step: any) {
+  switch (step) {
+    case 2:
+      return <ProfileLink />;
+    case 3:
+      return <ApplicationLink />;
+    case 4:
+      return <MoreInfo />;
+    case 5:
+      return <Video />;
+    default:
+      return <RegisterLink />;
+  }
 }
 
 type Props = TStateProps;
@@ -69,16 +96,13 @@ class Home extends React.Component<Props> {
                   </div>
                 </div>
 
-                {this.props.userId ? (
-                  this.props.useruniversity ? (
-                    <ApplicationLink />
-                  ) : (
-                    <ProfileLink />
-                  )
+                {this.props.userId && this.props.userStep ? (
+                  getStepContent(this.props.userStep)
                 ) : (
                   <RegisterLink />
                 )}
               </div>
+              <Stepper />
             </div>
           </div>
 
@@ -131,7 +155,8 @@ const MapStateToProp: MapStateToProps<TStateProps, TOwnProps, IState> = (
   userId: state.auth.userId,
   userEmail: (state.auth.currentuser || {}).email,
   useruniversity: (state.auth.currentuser || {}).university,
-  isSubmited: (state.auth.currentuser || {}).submited
+  isSubmited: (state.auth.currentuser || {}).submited,
+  userStep: (state.auth.currentuser || {}).step
 });
 
 export default connect(

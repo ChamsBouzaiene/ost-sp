@@ -1,4 +1,4 @@
-<head>
+const email = `<head>
     <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
     <meta name="viewport" content="width=device-width">
   
@@ -792,7 +792,7 @@
                                           <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
                                             <th style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left" align="left">
                                               <h1 class="welcome-header" style="color: inherit; font-family: Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 600; hyphens: none; line-height: 30px; margin: 0 0 24px; padding: 0; text-align: left; width: 100%; word-wrap: normal" align="left">
-                                                You're ready to go!
+                                                You're done your application is submited!
                                               </h1>
                                             </th>
                                             <th class="expander" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; visibility: hidden; width: 0" align="left"></th>
@@ -832,7 +832,7 @@
                                           <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
                                             <th style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left" align="left">
                                               <h2 class="welcome-subcontent" style="color: #6F7881; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 300; line-height: 22px; margin: 0; padding: 0; text-align: left; width: 100%; word-wrap: normal" align="left">
-                                                We've finished setting up your Ost account. Just confirm your email to get started!
+                                                You did it your application is confirmed . Just wait for further emails from us!
                                               </h2>
                                             </th>
                                             <th class="expander" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; visibility: hidden; width: 0" align="left"></th>
@@ -870,13 +870,7 @@
                                                           <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
                                                             <td style="-moz-hyphens: auto; -webkit-hyphens: auto; background: #4E78F1; border: 2px none #4e78f1; border-collapse: collapse !important; border-radius: 6px; color: #FFFFFF; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word"
                                                               align="left" bgcolor="#4E78F1" valign="top">
-                                                              <a style="border: 0 solid #4e78f1; border-radius: 6px; color: #FFFFFF; display: inline-block; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; line-height: 1.3; margin: 0; padding: 13px 0; text-align: center; text-decoration: none; width: 100%"
-                                                                target="_blank" href=<%="http://localhost:3001/auth/validate?" +
-                      verifyHref.split(":3000")[1].split("?")[1] %>>
-                                                                <p class="text-center" style="color: white; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 300; letter-spacing: 1px; line-height: 1.3; margin: 0; padding: 0; text-align: center" align="center">
-                                                                  Confirm email
-                                                                </p>
-                                                              </a>
+                                                            
                                                             </td>
                                                           </tr>
                                                         </tbody>
@@ -1026,49 +1020,55 @@
                           <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
                             <th class=" small-12 large-12 columns first last" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0 auto; padding: 0 16px 16px; text-align: left; width: 564px" align="left">
                               <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                <tbody>
-                                  <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
-                                    <th style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left" align="left">
-                                      <p class="text-center email-tag-line" style="color: #6F7881; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: center" align="center">
-                                        Made with ❤️ in GoMyCode
-                                      </p>
-                                      <p class="universe-address" style="color: #6F7881; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: center !important" align="center">
-                                        openstartuptunisia.competition@gmail.com
-                                      </p>
-                                      <p class="help-email-address text-center" style="color: #6F7881; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: center" align="center">
-                                        <span class="text-divider" style="margin-left: 10px; margin-right: 10px">
-  ©
-  2018
-  <a href="http://www.ost.com.tn/" style="color: #4E78F1; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none" target="_blank">
-  www.ost.com.tn
-  </a>
-  </span> |
-                                        <span class="text-divider" style="margin-left: 10px; margin-right: 10px">
-  <a href="#" style="color: #4E78F1; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none" target="_blank">Manage Preferences</a>
-  </span> |
-                                        <span class="text-divider" style="margin-left: 10px; margin-right: 10px">
-  <a href="#" style="color: #4E78F1; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none" target="_blank">Unsubscribe</a>
-  </span>
-  
-                                      </p>
-                                    </th>
-                                    <th class="expander" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; visibility: hidden; width: 0" align="left"></th>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-  
-            </center>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  
-  </body>
+                              <tbody>
+                              <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
+                                <th class=" small-12 large-12 columns first last" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0 auto; padding: 0 16px 16px; text-align: left; width: 564px" align="left">
+                                  <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
+                                    <tbody>
+                                      <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
+                                        <th style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left" align="left">
+                                          <p class="text-center email-tag-line" style="color: #6F7881; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: center" align="center">
+                                            Made with ❤️ in GoMyCode
+                                          </p>
+                                          <p class="universe-address" style="color: #6F7881; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: center !important" align="center">
+                                            openstartuptunisia.competition@gmail.com
+                                          </p>
+                                          <p class="help-email-address text-center" style="color: #6F7881; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.5; margin: 0; padding: 0; text-align: center" align="center">
+                                            <span class="text-divider" style="margin-left: 10px; margin-right: 10px">
+      ©
+      2018
+      <a href="http://www.ost.com.tn/" style="color: #4E78F1; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none" target="_blank">
+      www.ost.com.tn
+      </a>
+      </span> |
+                                            <span class="text-divider" style="margin-left: 10px; margin-right: 10px">
+      <a href="#" style="color: #4E78F1; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none" target="_blank">Manage Preferences</a>
+      </span> |
+                                            <span class="text-divider" style="margin-left: 10px; margin-right: 10px">
+      <a href="#" style="color: #4E78F1; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none" target="_blank">Unsubscribe</a>
+      </span>
+      
+                                          </p>
+                                        </th>
+                                        <th class="expander" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; visibility: hidden; width: 0" align="left"></th>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </th>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+      
+                </center>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </body>`;
+
+module.exports = email;

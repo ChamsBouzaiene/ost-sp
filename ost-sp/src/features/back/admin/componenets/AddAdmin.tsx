@@ -1,17 +1,9 @@
 import * as React from "react";
 import { Component } from "react";
-import {
-  TextField,
-  Button,
-  Select,
-  Input,
-  MenuItem,
-  InputLabel
-} from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import { withStyles, createStyles, Theme } from "@material-ui/core/styles";
 //import Select from "@material-ui/core/Select";
 import Grid from "@material-ui/core/Grid";
-import { universities } from "../../../../data/Universities";
 import { MapDispatchToProps, connect } from "react-redux";
 import { IState } from "src/shared/store";
 import * as Actions from "../actions";
@@ -58,14 +50,6 @@ const styles = ({ palette, spacing }: Theme) =>
     },
     title: {
       textDecoration: ""
-    },
-    table: {
-      minWidth: 700
-    },
-    row: {
-      "&:nth-of-type(odd)": {
-        backgroundColor: palette.background.default
-      }
     }
   });
 
@@ -79,7 +63,7 @@ class AddSelectors extends Component<Props, MyState> {
   state = {
     firstName: "",
     lastName: "",
-    university: "",
+
     email: ""
   };
   handleChange = (event: any) => {
@@ -118,27 +102,12 @@ class AddSelectors extends Component<Props, MyState> {
               />
 
               <br />
-              <InputLabel htmlFor="university-id">University</InputLabel>
-              <Select
-                value={this.state.university}
-                onChange={this.handleChange}
-                input={<Input name="university" id="university-id" />}
-              >
-                <MenuItem value="">
-                  <em>University</em>
-                </MenuItem>
-                {universities.map(el => (
-                  <MenuItem value={el.name} key={el.id}>
-                    {el.name}
-                  </MenuItem>
-                ))}
-              </Select>
 
               <br />
               <Button
                 color={"primary"}
                 className={classes.button}
-                onClick={() => this.props.onSubmit({ newSelector: this.state })}
+                onClick={() => this.props.onSubmit({ newAdmin: this.state })}
               >
                 Add Selector
               </Button>

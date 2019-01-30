@@ -35,11 +35,8 @@ import { levelOfstudies } from "../../../../data/LevelOfstudies";
 import Region from "../../../../data/Region";
 import Label from "reactstrap/lib/Label";
 import FormFeedback from "reactstrap/lib/FormFeedback";
-import FormGroup from "reactstrap/lib/FormGroup";
-import FormText from "reactstrap/lib/FormText";
-import { API_URL } from "../../../../data/Api";
+
 //import Label from "reactstrap/lib/Label";
-import Axios from "axios";
 //import Media from "reactstrap/lib/Media";
 
 //Convert Value C:\fakepath\20171120_180717.jpg to 20171120_180717.jpg
@@ -58,8 +55,6 @@ interface DispatchProps {
     id: number
   ) => Promise<FormikErrors<FormikValues>> | void;
 }
-
-const fileUploadUrl = API_URL + "/attachements/container/upload ";
 
 type Props = DispatchProps & TOwnProps & FormikProps<IProfileCredentials>;
 const Profile: StatelessComponent<Props> = ({
@@ -91,6 +86,86 @@ const Profile: StatelessComponent<Props> = ({
                   className="avatar-img"
                 />
               </div>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>@</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  placeholder="DateOfBirth"
+                  autoComplete="DateOfBirth"
+                  name="DateOfBirth"
+                  tag={Field}
+                  invalid={Boolean(errors.DateOfBirth && touched.DateOfBirth)}
+                  value={values.DateOfBirth}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>@</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  placeholder="Gender"
+                  autoComplete="gender"
+                  name="gender"
+                  tag={Field}
+                  invalid={Boolean(errors.gender && touched.gender)}
+                  value={values.gender}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>@</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  placeholder="Nationality"
+                  autoComplete="Nationality"
+                  name="nationality"
+                  tag={Field}
+                  invalid={Boolean(errors.nationality && touched.nationality)}
+                  value={values.nationality}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>@</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  placeholder="phone Number"
+                  autoComplete="phoneNumber"
+                  name="phoneNumber"
+                  tag={Field}
+                  invalid={Boolean(errors.phoneNumber && touched.phoneNumber)}
+                  value={values.phoneNumber}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>@</InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  type="text"
+                  placeholder="Address"
+                  autoComplete="address"
+                  name="address"
+                  tag={Field}
+                  invalid={Boolean(errors.address && touched.address)}
+                  value={values.address}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+              </InputGroup>
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
@@ -198,100 +273,7 @@ const Profile: StatelessComponent<Props> = ({
                   ))}
                 </Input>
               </InputGroup>
-              <InputGroupText>
-                <i className="fas fa-check-circle" />
-                {" Write down your bio ? "}
-              </InputGroupText>
-              <InputGroup className="mb-3">
-                <InputGroupAddon addonType="prepend" />
 
-                <Input
-                  type="textarea"
-                  name="bio"
-                  id="bio"
-                  placeholder="bio"
-                  autoComplete="bio"
-                  invalid={Boolean(errors.bio && touched.bio)}
-                  value={values.bio}
-                  onChange={handleChange}
-                />
-              </InputGroup>
-              <InputGroupText>
-                <i className="fas fa-check-circle" />
-                {" Upload your resume ? "}
-              </InputGroupText>
-              <InputGroup className="mb-3">
-                <InputGroupAddon addonType="prepend" />
-
-                <FormGroup>
-                  <Label for="exampleFile">Resume</Label>
-                  <Input
-                    type="file"
-                    placeholder="Resume"
-                    autoComplete="Resume"
-                    onChange={e => {
-                      console.log((e as any).target.files[0]);
-
-                      const file = (e as any).target.files[0];
-                      const formData = new FormData();
-                      formData.append("file", file);
-                      const config = {
-                        headers: {
-                          "content-type": "multipart/form-data"
-                        }
-                      };
-                      return Axios.post(fileUploadUrl, formData, config)
-                        .then(res => res.data)
-                        .then(data => data.result.files.file[0].name)
-                        .then(fileName => {
-                          Axios.patch(`${API_URL}/candidates/${userId}`, {
-                            resume: fileName
-                          });
-                          console.log(fileName);
-                        });
-                    }}
-                  />
-                  <FormText color="muted">Upload your resmue ...</FormText>
-                </FormGroup>
-              </InputGroup>
-              <InputGroupText>
-                <i className="fas fa-check-circle" />
-                {" Upload your picture ? "}
-              </InputGroupText>
-              <InputGroup className="mb-3">
-                <InputGroupAddon addonType="prepend" />
-
-                <FormGroup>
-                  <Label for="exampleFile">Avatar</Label>
-                  <Input
-                    type="file"
-                    placeholder="avatar"
-                    autoComplete="avatar"
-                    onChange={e => {
-                      console.log((e as any).target.files[0]);
-
-                      const file = (e as any).target.files[0];
-                      const formData = new FormData();
-                      formData.append("file", file);
-                      const config = {
-                        headers: {
-                          "content-type": "multipart/form-data"
-                        }
-                      };
-                      return Axios.post(fileUploadUrl, formData, config)
-                        .then(res => res.data)
-                        .then(data => data.result.files.file[0].name)
-                        .then(fileName => {
-                          Axios.patch(`${API_URL}/candidates/${userId}`, {
-                            avatar: fileName
-                          });
-                          console.log(fileName);
-                        });
-                    }}
-                  />
-                  <FormText color="muted">Upload a decent picture ...</FormText>
-                </FormGroup>
-              </InputGroup>
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
@@ -448,14 +430,18 @@ const ProfileWithFormik = withFormik<FormikDispatchProps, IProfileCredentials>({
   mapPropsToValues: () => ({
     recomendationCode: "",
     facebookLink: "",
-    validUniCertificate: "",
+    validUniCertificate: "yes",
     major: "Major",
     levelOfstudies: "Level Of Studies",
-    validPassport: "",
+    validPassport: "yes",
     university: "university",
     region: "",
-
-    bio: "",
+    DateOfBirth: "",
+    gender: "",
+    nationality: "",
+    phoneNumber: "",
+    address: "",
+    step: 3,
     dates: false
   }),
   handleSubmit: async (values, { props, setErrors }) => {

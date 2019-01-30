@@ -7,6 +7,7 @@ import IQuestion from "src/data/Question";
 import { IState } from "src/shared/store";
 import { ThunkDispatch } from "redux-thunk";
 import axios from "axios";
+import { API_URL } from "src/data/Api";
 
 interface DispatchProps {
   onDidMount: () => IQuestion[] | void;
@@ -16,6 +17,16 @@ type Props = DispatchProps & TOwnProps;
 
 class ApplicationContainer extends React.Component<Props> {
   state = {};
+  handleNoOption = (value: any) => {
+    this.setState({
+      value: "No"
+    });
+  };
+  handleSelect = (e: any) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
   handleUserInput = (e: any) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -25,8 +36,13 @@ class ApplicationContainer extends React.Component<Props> {
 
   handleSubmit = (url: string, state: object, userId: string) => {
     const NewData = Object.keys(state).map(key => {
-      return [Number(key), state[key]];
+      if (key.includes("optionstester")) {
+        return true;
+      } else {
+        return [Number(key), state[key]];
+      }
     });
+    console.log(NewData);
     NewData.map((entity: any) =>
       axios
         .post(`${url}/answers`, {
@@ -37,6 +53,7 @@ class ApplicationContainer extends React.Component<Props> {
         .then(res => console.log("data", res.data))
         .catch(err => console.log("err", err))
     );
+    axios.patch(`${API_URL}/candidates/${userId}`, { step: 4 });
   };
 
   componentWillMount() {
@@ -51,6 +68,8 @@ class ApplicationContainer extends React.Component<Props> {
           handleSubmit={this.handleSubmit}
           userId={this.props.userId}
           state={this.state}
+          handleSelect={this.handleSelect}
+          handleNoOption={this.handleNoOption}
         />
       </div>
     );
@@ -59,6 +78,8 @@ class ApplicationContainer extends React.Component<Props> {
 export interface TOwnProps {
   questions: IQuestion[];
   handleUserInput: (e: any) => void;
+  handleSelect: (e: any) => void;
+  handleNoOption: (value: any) => void;
   handleSubmit: (url: string, state: object, userId: string) => void;
   userId: any;
   state: any;

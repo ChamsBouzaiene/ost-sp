@@ -10,11 +10,7 @@ import {
 export const validationSchema = yup.object().shape({
   Surname: yup.string().required(isRequired("Surname")),
   FamilyName: yup.string().required(isRequired("Family Name")),
-  DateOfBirth: yup.string().required(isRequired("Date Of Birth")),
-  gender: yup.string().required(isRequired("Gender")),
-  nationality: yup.string().required(isRequired("Nationality")),
-  address: yup.string().required(isRequired("address")),
-  phoneNumber: yup.string().required(isRequired("phoneNumber")),
+
   email: yup
     .string()
     .min(3, isTooShort("Email"))
@@ -44,11 +40,7 @@ export const validationSchema = yup.object().shape({
 interface IRegisterCredentials {
   Surname: string;
   FamilyName: string;
-  DateOfBirth: string;
-  gender: string;
-  nationality: string;
-  address: string;
-  phoneNumber: string;
+  step: number;
   email: string;
   cin: string;
   password: string;

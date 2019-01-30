@@ -7,7 +7,6 @@ import {
   CardBody,
   CardGroup,
   Col,
-  Container,
   Form,
   Input,
   InputGroup,
@@ -50,72 +49,68 @@ const ResetPassword: StatelessComponent<Props> = ({
   errors
 }) => (
   <div className="app  flex-row align-items-center">
-    <Container>
-      <Row className="justify-content-center">
-        <Col md="8">
-          <CardGroup>
-            <Card className="p-4">
-              <CardBody>
-                <Form onSubmit={handleSubmit}>
-                  {hasSucceded === "success" ? (
-                    <Alert color="success">
-                      Your password has been changed
-                    </Alert>
-                  ) : null}
+    <Row className="justify-content-center patch">
+      <Col md="8">
+        <CardGroup>
+          <Card className="p-4">
+            <CardBody>
+              <Form onSubmit={handleSubmit}>
+                {hasSucceded === "success" ? (
+                  <Alert color="success">Your password has been changed</Alert>
+                ) : null}
 
-                  <h1>Reset Password</h1>
-                  <p className="text-muted">Enter your new password</p>
-                  <InputGroup className="mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="icon-lock" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      tag={Field}
-                      invalid={Boolean(errors.password && touched.password)}
-                      value={values.password}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      name="password"
-                      type="password"
-                      placeholder="password"
-                      autoComplete="password"
-                    />
-                    <FormFeedback tooltip={true}>
-                      {errors.confirmPassword}
-                    </FormFeedback>
-                  </InputGroup>
-                  <InputGroup className="mb-4">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="icon-lock" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      value={values.confirmPassword}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      name="confirmPassword"
-                      type="password"
-                      placeholder="Confirm Password"
-                      autoComplete="Confirm-password"
-                    />
-                  </InputGroup>
-                  <Row>
-                    <Col xs="6">
-                      <Button color="primary" className="px-4" type="submit">
-                        Confirm
-                      </Button>
-                    </Col>
-                  </Row>
-                </Form>
-              </CardBody>
-            </Card>
-          </CardGroup>
-        </Col>
-      </Row>
-    </Container>
+                <h1>Reset Password</h1>
+                <p className="text-muted">Enter your new password</p>
+                <InputGroup className="mb-3">
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>
+                      <i className="icon-lock" />
+                    </InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    tag={Field}
+                    invalid={Boolean(errors.password && touched.password)}
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="password"
+                    type="password"
+                    placeholder="password"
+                    autoComplete="password"
+                  />
+                  <FormFeedback tooltip={true}>
+                    {errors.confirmPassword}
+                  </FormFeedback>
+                </InputGroup>
+                <InputGroup className="mb-4">
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>
+                      <i className="icon-lock" />
+                    </InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    value={values.confirmPassword}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="confirmPassword"
+                    type="password"
+                    placeholder="Confirm Password"
+                    autoComplete="Confirm-password"
+                  />
+                </InputGroup>
+                <Row>
+                  <Col xs="6">
+                    <Button color="primary" className="px-4" type="submit">
+                      Confirm
+                    </Button>
+                  </Col>
+                </Row>
+              </Form>
+            </CardBody>
+          </Card>
+        </CardGroup>
+      </Col>
+    </Row>
   </div>
 );
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = (
