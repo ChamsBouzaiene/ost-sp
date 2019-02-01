@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { connect, MapDispatchToProps } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { RouterAction, push } from "react-router-redux";
+import "./confirm.css";
 import Axios from "axios";
 import { API_URL } from "src/data/Api";
 
@@ -15,8 +16,7 @@ interface ForgotMyPasswordProps {
 type Props = ForgotMyPasswordProps & State;
 class Verify extends Component<Props> {
   componentDidMount() {
-    setTimeout(this.props.onDidMount, 10000);
-
+    setTimeout(this.props.onDidMount, 4000);
     const initAuth = () => {
       let savedToken;
       try {
@@ -26,14 +26,12 @@ class Verify extends Component<Props> {
       }
       return Promise.resolve(savedToken || {});
     };
-
     //Send Email To candidate to tell him that the application is confirmed
     initAuth().then(savedToken =>
       Axios.post(`${API_URL}/assesments/applied`, {
         email: savedToken.id
       })
     );
-
     //Patch the atribute patch to true
     initAuth().then(savedToken =>
       Axios.patch(`${API_URL}/candidates/${savedToken.userId}`, {
@@ -45,10 +43,22 @@ class Verify extends Component<Props> {
   render() {
     return (
       <Fragment>
-        <h2>
-          Your Application has been submited, you will be redirected to home
-          shortly
-        </h2>
+        <div className="confirm">
+          <div className="confirm-card">
+            <div className="confirm-img">
+              <i className="far fa-check-circle" />
+            </div>
+            <div className="confirm-text">
+              <span className="confirm-title">DONE</span>
+              <span className="confirm-desc">
+                You have completed the application proccess congrats
+              </span>
+            </div>
+            <div className="confirm-btn">
+              <p>continue</p>
+            </div>
+          </div>
+        </div>
       </Fragment>
     );
   }

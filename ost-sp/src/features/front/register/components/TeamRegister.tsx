@@ -52,7 +52,7 @@ const Register: StatelessComponent<Props> = ({
         <Card className="mx-4">
           <CardBody className="p-4">
             <Form onSubmit={handleSubmit}>
-              <h1>Register</h1>
+              <h1>Register As A Team</h1>
               <p className="text-muted">Create your account</p>
               <InputGroup className="mb-3">
                 <InputGroupAddon addonType="prepend">
@@ -197,7 +197,7 @@ const RegisterWithFormik = withFormik<DispatchProps, IRegisterCredentials>({
     cin: "",
     password: "",
     confirmPassword: "",
-    team: false
+    team: true
   }),
   handleSubmit: async (values, { props, setErrors, setSubmitting }) => {
     const errors = await props.onSubmit(values);

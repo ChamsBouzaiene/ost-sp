@@ -11,6 +11,11 @@ const ProfileLink = () => (
     <i className="fab fa-telegram-plane" /> Apply now
   </Link>
 );
+const TeamProfileLink = () => (
+  <Link to="/profile/team-profile" className="application-btn">
+    <i className="fab fa-telegram-plane" /> Apply now
+  </Link>
+);
 const ApplicationLink = () => (
   <Link to="/application" className="application-btn">
     <i className="fab fa-telegram-plane" /> Apply now
@@ -39,12 +44,27 @@ interface TStateProps {
   userStep: string;
   isSubmited: boolean;
   userEmail: string;
+  isTeam: boolean;
 }
 
 function getStepContent(step: any) {
   switch (step) {
     case 2:
       return <ProfileLink />;
+    case 3:
+      return <ApplicationLink />;
+    case 4:
+      return <MoreInfo />;
+    case 5:
+      return <Video />;
+    default:
+      return <RegisterLink />;
+  }
+}
+function getStepContentForTeam(step: any) {
+  switch (step) {
+    case 2:
+      return <TeamProfileLink />;
     case 3:
       return <ApplicationLink />;
     case 4:
@@ -96,12 +116,19 @@ class Home extends React.Component<Props> {
                   </div>
                 </div>
 
-                {this.props.userId && this.props.userStep ? (
-                  getStepContent(this.props.userStep)
+                {this.props.userId && this.props.userStep && !this.props.isTeam
+                  ? getStepContent(this.props.userStep)
+                  : <RegisterLink /> && !this.props.isTeam}
+
+                {this.props.userId &&
+                this.props.userStep &&
+                this.props.isTeam ? (
+                  getStepContentForTeam(this.props.userStep)
                 ) : (
                   <RegisterLink />
                 )}
               </div>
+
               <Stepper />
             </div>
           </div>
@@ -156,7 +183,8 @@ const MapStateToProp: MapStateToProps<TStateProps, TOwnProps, IState> = (
   userEmail: (state.auth.currentuser || {}).email,
   useruniversity: (state.auth.currentuser || {}).university,
   isSubmited: (state.auth.currentuser || {}).submited,
-  userStep: (state.auth.currentuser || {}).step
+  userStep: (state.auth.currentuser || {}).step,
+  isTeam: (state.auth.currentuser || {}).team
 });
 
 export default connect(

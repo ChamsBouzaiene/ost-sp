@@ -125,16 +125,33 @@ const Auth: StatelessComponent<Props> = ({
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
-                <Link to="/auth/register">
-                  <Button
-                    color="primary"
-                    className="mt-3"
-                    active={true}
-                    tabIndex={-1}
-                  >
-                    Register Now!
-                  </Button>
-                </Link>
+
+                <Row>
+                  <Col xs="6">
+                    <Link to="/auth/register">
+                      <Button
+                        color="primary"
+                        className="mt-3"
+                        active={true}
+                        tabIndex={-1}
+                      >
+                        As a Indivdual!
+                      </Button>
+                    </Link>
+                  </Col>
+                  <Col xs="6" className="text-right">
+                    <Link to="auth/teamRegister">
+                      <Button
+                        color="primary"
+                        className="mt-3"
+                        active={true}
+                        tabIndex={-1}
+                      >
+                        As a Team!
+                      </Button>
+                    </Link>
+                  </Col>
+                </Row>
               </div>
             </CardBody>
           </Card>

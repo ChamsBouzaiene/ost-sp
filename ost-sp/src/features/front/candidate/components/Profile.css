@@ -11,6 +11,13 @@
   border-radius: 50%;
 }
 
+.add-memeber {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 23vh;
+}
+
 .my-card-body {
   border: none !important;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
@@ -35,6 +42,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.membres-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.member {
+  margin: 5px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -90,6 +106,18 @@
   font-weight: bold;
   padding: 10px;
   width: 150px;
+}
+
+.team-desc {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-around;
+
+  color: white;
+
+  font-family: san;
 }
 
 /***************ANIMATION**************/

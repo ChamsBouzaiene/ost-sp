@@ -45,6 +45,7 @@ interface IRegisterCredentials {
   cin: string;
   password: string;
   confirmPassword: string;
+  team: boolean;
 }
 
 export default IRegisterCredentials;
