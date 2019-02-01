@@ -3,9 +3,10 @@ import axios from "axios";
 import IProfileCredentials from "../../../data/ProfileCredential";
 import MoreInfo from "src/data/MoreInfo";
 import YoutubeStep from "src/data/VideoStep";
+import ITeamCredentials from "src/data/TeamCredential";
 
 export const updateOne = (
-  profile: IProfileCredentials | MoreInfo,
+  profile: IProfileCredentials | MoreInfo | ITeamCredentials,
   id: number
 ) => axios.patch(`${API_URL}/candidates/${id}`, profile).then(res => res.data);
 

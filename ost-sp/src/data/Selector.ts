@@ -5,6 +5,9 @@ export default interface ISelector {
   lastName: string;
   avatar?: string;
   resume?: string;
+  cinPicture?: string;
+  team?: boolean;
+  teamMembers?: any;
 }
 
 export const Selector = [

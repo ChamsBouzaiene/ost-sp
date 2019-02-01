@@ -5,6 +5,9 @@ export default interface IAdmin {
   lastName: string;
   avatar: string;
   resume: string;
+  cinPicture?: string;
+  team?: boolean;
+  teamMembers?: any;
 }
 
 export const Admin = [

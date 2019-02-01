@@ -4,6 +4,7 @@ import { connect, MapDispatchToProps, MapStateToProps } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { IState } from "src/shared/store";
 import Entity from "src/data/Entity";
+import { teamMember } from "src/data/TeamMember";
 //import Entity from "src/data/Entity";
 import { withStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -12,8 +13,11 @@ import Avatar from "@material-ui/core/Avatar";
 //import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
+
 import { API_URL } from "src/data/Api";
 import "./Profile.css";
+import { Card, CardActionArea } from "@material-ui/core";
+
 //import { Link } from "react-router-dom";
 
 const getAvatarLink = (value: any) => {
@@ -24,6 +28,13 @@ const styles = ({ palette, spacing }: Theme) =>
   createStyles({
     root: {
       flexGrow: 1
+    },
+    card: {
+      maxWidth: 345
+    },
+    media: {
+      // ⚠️ object-fit is not supported by IE 11.
+      objectFit: "cover"
     },
     paper: {
       padding: spacing.unit * 10,
@@ -50,8 +61,39 @@ const styles = ({ palette, spacing }: Theme) =>
     },
     title: {
       textDecoration: ""
+    },
+    table: {
+      minWidth: 700
+    },
+    row: {
+      "&:nth-of-type(odd)": {
+        backgroundColor: palette.background.default
+      }
     }
   });
+
+// const TeamMembers = (classes: any) => {
+//   return (
+
+//   );
+// };
+
+const FiltreEntity = (entity: any) => {
+  return entity.filter(([k, v]: [any, any]) => {
+    console.log(k);
+    return (
+      k !== "avatar" &&
+      k !== "resume" &&
+      k !== "cinPicture" &&
+      k !== "teamMembers" &&
+      k !== "team" &&
+      k !== "step" &&
+      k !== "id" &&
+      k !== "confirmPassword" &&
+      k !== "emailVerified"
+    );
+  });
+};
 
 type Props = TOwnProps & DispatchProps & TStateProps;
 
@@ -82,6 +124,20 @@ class Profile extends React.Component<Props> {
                     <a href={entity ? getAvatarLink(entity.resume) : "/404"}>
                       Resume
                     </a>
+                    <Card className={classes.card}>
+                      <CardActionArea>
+                        <img
+                          className={classes.media}
+                          style={{ width: "300px" }}
+                          src={
+                            entity && entity.cinPicture
+                              ? getAvatarLink(entity.cinPicture)
+                              : "http://www.baya.tn/wp-content/uploads/2016/04/carte-identite.jpg"
+                          }
+                          title="CIN"
+                        />
+                      </CardActionArea>
+                    </Card>
                   </div>
                 </Grid>
                 <Grid item={true} xs={12} sm={6} md={8}>
@@ -99,14 +155,13 @@ class Profile extends React.Component<Props> {
 
                   <Grid container={true} spacing={0}>
                     {entity &&
-                      Object.entries(entity).map(
-                        ([k, v], i) =>
-                          (console.log(i) as any) ||
-                          (i % 4 === 0 && (
+                      FiltreEntity(Object.entries(entity)).map(
+                        ([k, v]: [any, any], i: any) =>
+                          i % 4 === 0 && (
                             <Grid key={i} item={true} xs={12} sm={6} md={4}>
-                              {Object.entries(entity)
+                              {FiltreEntity(Object.entries(entity))
                                 .slice(i, i + 4)
-                                .map(([k, v], j) => (
+                                .map(([k, v]: [any, any], j: any) => (
                                   <TextField
                                     key={j}
                                     style={{
@@ -122,11 +177,31 @@ class Profile extends React.Component<Props> {
                                   />
                                 ))}
                             </Grid>
-                          ))
+                          )
                       )}
                   </Grid>
                 </Grid>
               </Grid>
+            </Paper>
+          </Grid>
+          <Grid item={true} xs={12} sm={12} md={12}>
+            <Paper className={classes.paper}>
+              {entity && entity.team && (
+                <table id="customers">
+                  <tr>
+                    {teamMember.map((el: any, id: any) => (
+                      <th key={id}>{Object.values(el)}</th>
+                    ))}
+                  </tr>
+                  {entity.teamMembers.map((el: any, id: any) => (
+                    <tr>
+                      {Object.entries(el).map((el: any, id: any) => (
+                        <td>{el[1]}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </table>
+              )}
             </Paper>
           </Grid>
           <Grid item={true} xs={12} sm={12} md={12}>

@@ -84,10 +84,8 @@ const styles = (theme: any) => ({
 const Links = [
   { Name: "Home", Link: "/admin" },
   { Name: "Applications Dashboard", Link: "/admin/applications" },
+  { Name: "Indivdual Dashboard", Link: "/admin/individual" },
   { Name: " Selectors Dashboard", Link: "/admin/selectors" },
-  { Name: " Grading Dashboard", Link: "/admin/grades" },
-  { Name: "Assemssments Dashboard", Link: "/admin/assessments" },
-  { Name: "Emails Managment Dashboard", Link: "/admin/emails" },
   { Name: "Alumnis Dashboard", Link: "/admin/alumnis" },
   { Name: "Admins Dashboard", Link: "/admin/admins" },
   { Name: "Selection Dashboard", Link: "/admin/selection" },
@@ -182,18 +180,6 @@ class MainDashboard extends React.Component<OwnProps, OwnState> {
                   <ListItemText primary={item.Name} />
                 </ListItem>
               </Link>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
-              <ListItem button={true} key={text}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-
-                <ListItemText primary={text} />
-              </ListItem>
             ))}
           </List>
         </Drawer>

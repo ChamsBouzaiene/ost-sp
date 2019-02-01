@@ -11,23 +11,24 @@ export default interface ICandidate {
   Gender: string;
   Nationality: string;
   address: string;
-  PhoneNumber: string;
+  phoneNumber: string;
   avatar: string;
   resume: string;
+  cinPicture: string;
+  team?: boolean;
+  teamMembers?: any;
 }
 
 export const Candidate = [
   {
     Surname: "Surname",
     FamilyName: "Family Name",
-    DateOfBirth: "Date Of Birth",
-    Gender: "Gender",
+    gender: "Gender",
     cin: "CIN",
     email: "Email",
     selectorId: "Selector",
-    field: "Field",
     nationality: "Nationality",
-    address: "Address",
-    PhoneNumber: "Phone Number"
+    step: "% Completion",
+    phoneNumber: "Phone Number"
   }
 ];

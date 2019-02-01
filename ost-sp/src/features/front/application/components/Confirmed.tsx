@@ -36,7 +36,8 @@ class Verify extends Component<Props> {
     //Patch the atribute patch to true
     initAuth().then(savedToken =>
       Axios.patch(`${API_URL}/candidates/${savedToken.userId}`, {
-        submited: true
+        submited: true,
+        step: 6
       })
     );
   }

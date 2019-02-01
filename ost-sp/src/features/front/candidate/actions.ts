@@ -5,6 +5,7 @@ import { IState } from "../../../shared/store";
 import MoreInfo from "src/data/MoreInfo";
 import YoutubeStep from "src/data/VideoStep";
 import { push, RouterAction } from "react-router-redux";
+import ITeamCredentials from "src/data/TeamCredential";
 
 export const SUBMIT_VIDEO = "SUBMIT_VIDEO";
 export const SUBMIT_VIDEO_SUCCESS = "SUBMIT_VIDEO_SUCCESS";
@@ -84,7 +85,7 @@ export type UpdateProfilActions =
   | IUpdateProfileFailure;
 
 export const updateProfile = (
-  profileCredentials: IProfileCredentials | MoreInfo,
+  profileCredentials: IProfileCredentials | MoreInfo | ITeamCredentials,
   id: number
 ): ThunkAction<void, IState, void, UpdateProfilActions> => dispatch => {
   dispatch({

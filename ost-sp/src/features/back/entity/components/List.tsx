@@ -14,7 +14,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { push, RouterAction } from "react-router-redux";
-//import ICandidate from "src/data/Candidate";
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -25,6 +24,13 @@ const CustomTableCell = withStyles(theme => ({
     fontSize: 14
   }
 }))(TableCell);
+
+const isIndividual = (value: any) => {
+  if (value !== undefined) {
+    return value.pathname.includes("individual");
+  }
+  return value;
+};
 
 const styles = ({ palette, spacing }: Theme) =>
   createStyles({
@@ -45,6 +51,49 @@ const styles = ({ palette, spacing }: Theme) =>
 
 type Props = DispatchProps & TOwnProps & TStateProps;
 
+const CustomEntity = (list: any, schema: any) => {
+  if (schema.selectorId && schema.team) {
+    return list;
+  }
+  if (schema.selectorId && !schema.team) {
+    return list.filter((el: any) => el.selectorId);
+  }
+  if (!schema.selectorId) {
+    if (schema.team) {
+      return list.filter((el: any) => el.team === true);
+    } else {
+      console.log(schema);
+      return list.filter((el: any) => el.selectorId === undefined);
+    }
+  }
+
+  return list;
+};
+
+const dataMapper = (data: any, key: any) => {
+  if (key === "step") {
+    return stepsMap(data);
+  }
+  return data;
+};
+
+const stepsMap = (step: any) => {
+  switch (step) {
+    case 2:
+      return "20%";
+    case 3:
+      return "40%";
+    case 4:
+      return "60%";
+    case 5:
+      return "80%";
+    case 6:
+      return "100%";
+    default:
+      return "20%";
+  }
+};
+
 class List extends React.Component<Props> {
   componentDidMount() {
     this.props.onDidMount();
@@ -54,6 +103,7 @@ class List extends React.Component<Props> {
   render() {
     const { classes } = this.props;
     const schema = Object.entries(this.props.schema[0]);
+
     return (
       <div>
         <Paper className={classes.root}>
@@ -76,23 +126,26 @@ class List extends React.Component<Props> {
             </TableHead>
             <TableBody>
               {this.props.entities &&
-                this.props.entities.map(entity => (
-                  <TableRow className={classes.row} key={entity.id}>
-                    {schema.map(([k, v], i) => (
-                      <CustomTableCell
-                        align="left"
-                        key={i}
-                        component="th"
-                        scope="row"
-                        onClick={() => this.props.onClickEntity(entity.id)}
-                      >
-                        {entity[k]}
-                      </CustomTableCell>
-                    ))}
-                  </TableRow>
-                ))}
+                CustomEntity(this.props.entities, this.props.schema[0]).map(
+                  (entity: any) => (
+                    <TableRow className={classes.row} key={entity.id}>
+                      {schema.map(([k, v], i) => (
+                        <CustomTableCell
+                          align="left"
+                          key={i}
+                          component="th"
+                          scope="row"
+                          onClick={() => this.props.onClickEntity(entity.id)}
+                        >
+                          {dataMapper(entity[k], k)}
+                        </CustomTableCell>
+                      ))}
+                    </TableRow>
+                  )
+                )}
             </TableBody>
           </Table>
+
           {this.props.children}
         </Paper>
       </div>
@@ -131,7 +184,8 @@ interface TStateProps {
 const mapStateToProp: MapStateToProps<TStateProps, TOwnProps, IState> = (
   state: IState
 ) => ({
-  entities: state.entity.entities
+  entities: state.entity.entities,
+  isIndividual: isIndividual((state.router || {}).location)
 });
 const ConnectedList = connect(
   mapStateToProp,

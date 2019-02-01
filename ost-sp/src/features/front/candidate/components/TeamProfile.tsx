@@ -12,9 +12,9 @@ import {
   Row
 } from "reactstrap";
 import { IState } from "src/shared/store";
-import IProfileCredentials, {
+import ITeamCredential, {
   validationSchema
-} from "../../../../data/ProfileCredential";
+} from "../../../../data/TeamCredential";
 import * as Actions from "../actions";
 
 import { ThunkDispatch } from "redux-thunk";
@@ -49,12 +49,12 @@ import { API_URL } from "src/data/Api";
 
 interface DispatchProps {
   onSubmit: (
-    profileCredientials: IProfileCredentials,
+    profileCredientials: ITeamCredential,
     id: number
   ) => Promise<FormikErrors<FormikValues>> | void;
 }
 
-type Props = DispatchProps & TOwnProps & FormikProps<IProfileCredentials>;
+type Props = DispatchProps & TOwnProps & FormikProps<ITeamCredential>;
 class Profile extends React.Component<Props> {
   state = {
     members: []
@@ -253,7 +253,7 @@ interface TStateProps {}
 interface FormikDispatchProps {
   userId: number;
   onSubmit: (
-    profileCredientials: IProfileCredentials,
+    profileCredientials: ITeamCredential,
     id: number
   ) => Promise<FormikErrors<FormikValues>> | void;
 }
@@ -267,28 +267,20 @@ const mapStateToProp: MapStateToProps<TStateProps, TOwnProps, IState> = (
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = (
   dispatch: ThunkDispatch<IState, void, Actions.UpdateProfilActions>
 ) => ({
-  onSubmit: (IProfileCredentials: IProfileCredentials, id: number) => {
+  onSubmit: (IProfileCredentials: ITeamCredential, id: number) => {
     dispatch(Actions.updateProfile(IProfileCredentials, id));
   }
 });
-const ProfileWithFormik = withFormik<FormikDispatchProps, IProfileCredentials>({
+const ProfileWithFormik = withFormik<FormikDispatchProps, ITeamCredential>({
   validationSchema,
   mapPropsToValues: () => ({
-    recomendationCode: "",
-    facebookLink: "",
-    validUniCertificate: "yes",
-    major: "Major",
-    levelOfstudies: "Level Of Studies",
-    validPassport: "yes",
     university: "university",
-    region: "",
     DateOfBirth: "",
     gender: "",
     nationality: "",
     phoneNumber: "",
     address: "",
-    step: 3,
-    dates: false
+    step: 3
   }),
   handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.onSubmit(values, props.userId);
