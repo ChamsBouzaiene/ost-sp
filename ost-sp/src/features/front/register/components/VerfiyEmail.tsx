@@ -12,17 +12,31 @@ interface ForgotMyPasswordProps {
 
 class Verify extends Component<ForgotMyPasswordProps> {
   componentDidMount() {
-    setTimeout(this.props.onDidMount, 10000);
+    setTimeout(this.props.onDidMount, 4000);
   }
   render() {
     return (
       <Fragment>
-        <h2>
-          An Email has been sent to your email account Please Verify Your Email
-          Acount{" "}
-        </h2>
-        <br />
-        <h2>You will be redirected to the login page shortly</h2>
+        <div className="confirm">
+          <div className="confirm-card">
+            <div className="confirm-img">
+              <i className="far fa-envelope" />
+            </div>
+            <div className="confirm-text">
+              <span className="confirm-title">DONE</span>
+              <span className="confirm-desc">
+                An Email has been sent to your email account Please Verify Your
+                Email Acount{" "}
+              </span>
+              <span className="confirm-desc">
+                You will be redirected to the login page shortly
+              </span>
+            </div>
+            <div className="confirm-btn">
+              <p>continue</p>
+            </div>
+          </div>
+        </div>
       </Fragment>
     );
   }

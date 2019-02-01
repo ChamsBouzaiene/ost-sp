@@ -50,12 +50,12 @@ const Application: StatelessComponent<Props> = ({
                 <p className="text-muted">Answer this questions</p>
                 {questions &&
                   questions
-                    .filter(({ id }) => id < 17)
+                    .filter(({ id }) => id > 17)
                     .map(({ id, question }) => {
                       if (!question.includes("video")) {
                         return (
                           <React.Fragment>
-                            <p key={id}>{`${id - 5}-${question}`}</p>
+                            <p key={id}>{`${id}-${question}`}</p>
                             <InputGroup className="mb-3">
                               <InputGroupAddon addonType="prepend">
                                 <InputGroupText>

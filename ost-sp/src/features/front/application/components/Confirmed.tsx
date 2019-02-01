@@ -27,11 +27,12 @@ class Verify extends Component<Props> {
       return Promise.resolve(savedToken || {});
     };
     //Send Email To candidate to tell him that the application is confirmed
-    initAuth().then(savedToken =>
+    initAuth().then(savedToken => {
+      console.log("id", savedToken);
       Axios.post(`${API_URL}/assesments/applied`, {
-        email: savedToken.id
-      })
-    );
+        id: savedToken.userId
+      });
+    });
     //Patch the atribute patch to true
     initAuth().then(savedToken =>
       Axios.patch(`${API_URL}/candidates/${savedToken.userId}`, {

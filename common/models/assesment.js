@@ -10,14 +10,13 @@ module.exports = function(Assesment) {
   };
 
   Assesment.afterRemote("applied", function(ctx, instance, next) {
-    console.log(ctx.args);
+    console.log("the args ", ctx.args);
 
     Assesment.app.models.Candidate.findById(ctx.args.id, function(
       err,
       candidate
     ) {
-      if (err) return cb(err);
-      if (!candidate) return cb(new Error("Id not found"));
+      if (!candidate) return new Error("Id not found");
       console.log("his user id is !!", candidate.id);
       console.log("his email is !!", candidate.email);
       Assesment.app.models.Email.send(

@@ -2,6 +2,7 @@ import * as React from "react";
 import "./Home.css";
 import Header from "../../../../shared/components/Header/Header";
 import Stepper from "../../../../shared/components/Stepper";
+import TeamStepper from "../../../../shared/components/TeamStepper";
 import { Link } from "react-router-dom";
 import { MapStateToProps, connect } from "react-redux";
 import { IState } from "src/shared/store";
@@ -17,6 +18,11 @@ const TeamProfileLink = () => (
   </Link>
 );
 const ApplicationLink = () => (
+  <Link to="/application" className="application-btn">
+    <i className="fab fa-telegram-plane" /> Apply now
+  </Link>
+);
+const TeamApplicationLink = () => (
   <Link to="/application" className="application-btn">
     <i className="fab fa-telegram-plane" /> Apply now
   </Link>
@@ -66,13 +72,11 @@ function getStepContentForTeam(step: any) {
     case 2:
       return <TeamProfileLink />;
     case 3:
-      return <ApplicationLink />;
+      return <TeamApplicationLink />;
     case 4:
-      return <MoreInfo />;
-    case 5:
       return <Video />;
     default:
-      return <RegisterLink />;
+      return null;
   }
 }
 
@@ -129,7 +133,11 @@ class Home extends React.Component<Props> {
                 )}
               </div>
 
-              <Stepper />
+              {this.props.userId && !this.props.isTeam ? (
+                <Stepper />
+              ) : (
+                <TeamStepper />
+              )}
             </div>
           </div>
 

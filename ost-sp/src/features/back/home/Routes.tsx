@@ -12,10 +12,12 @@ import AlumniDashboard from "../alumni/Routes";
 import SelectionsDashboard from "../selection/Routes";
 import UnassignedDashboard from "../unassigned/Routes";
 import TeamDashboard from "../team/Routes";
+import AuthRoutes from "../adminAuth/Routes";
 
 const BackRoutes: StatelessComponent = () => (
   <Switch>
     <Route path="/admin/applications" component={ApplicationsRoutes} />
+    <Route path="/admin/login" component={AuthRoutes} />
     <Route path="/admin/assessments" component={AssessmentsRoutes} />
     <Route path="/admin/selectors" component={SelectorsRoutes} />
     <Route path="/admin/selectors" component={SelectorsRoutes} />
