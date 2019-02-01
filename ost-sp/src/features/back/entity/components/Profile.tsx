@@ -17,6 +17,7 @@ import Typography from "@material-ui/core/Typography";
 import { API_URL } from "src/data/Api";
 import "./Profile.css";
 import { Card, CardActionArea } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 //import { Link } from "react-router-dom";
 
@@ -77,6 +78,13 @@ const styles = ({ palette, spacing }: Theme) =>
 
 //   );
 // };
+
+const EntityId = (value: any) => {
+  if (value !== undefined) {
+    return value.pathname.split("/")[value.pathname.split("/").length - 1];
+  }
+  return value;
+};
 
 const FiltreEntity = (entity: any) => {
   return entity.filter(([k, v]: [any, any]) => {
@@ -179,6 +187,10 @@ class Profile extends React.Component<Props> {
                             </Grid>
                           )
                       )}
+
+                    {this.props.entityId && (
+                      <Link to={`/admin/grade/`}>Grade Candidate</Link>
+                    )}
                   </Grid>
                 </Grid>
               </Grid>
@@ -234,12 +246,14 @@ const mapDispatchToProps: MapDispatchToProps<DispatchProps, TOwnProps> = (
 
 interface TStateProps {
   entity: Entity;
+  entityId: any;
 }
 
 const mapStateToProp: MapStateToProps<TStateProps, TOwnProps, IState> = (
   state: IState
 ) => ({
-  entity: state.entity.entity
+  entity: state.entity.entity,
+  entityId: EntityId((state.router || {}).location)
 });
 
 const connectedProfile = connect(

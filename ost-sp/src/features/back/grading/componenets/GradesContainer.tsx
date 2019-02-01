@@ -83,16 +83,18 @@ export interface TOwnProps {
   handleSubmit: (url: string, state: object, userId: string) => void;
   userId: any;
   state: any;
+  id: string;
 }
 
 interface TStateProps {}
+
 const mapStateToProps: MapStateToProps<TStateProps, TOwnProps, IState> = (
   state: IState
 ) => ({
   questions: state.questions,
   userId: state.auth.userId
 });
-const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = (
+const mapDispatchToProps: MapDispatchToProps<DispatchProps, TOwnProps> = (
   dispatch: ThunkDispatch<IState, void, Actions.QuestionsActions>
 ) => ({
   onDidMount: () => {

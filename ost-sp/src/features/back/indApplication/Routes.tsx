@@ -5,6 +5,7 @@ import * as React from "react";
 import List from "../entity/components/List";
 import { Candidate } from "src/data/Candidate";
 import Profile from "../entity/components/Profile";
+
 import Details from "./componenets/ApplicationDetails";
 
 const applicationsRoutes: StatelessComponent = () => (

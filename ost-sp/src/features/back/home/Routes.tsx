@@ -5,7 +5,7 @@ import ApplicationsRoutes from "../Application/Routes";
 import IndApplicationsRoutes from "../indApplication/Routes";
 import SelectorsRoutes from "../selector/Routes";
 import * as React from "react";
-import GradesRoutes from "../grading/Routes";
+import GradesRoutes from "../grading/componenets/GradesContainer";
 import AdminsRoutes from "../admin/Routes";
 import MainRoutes from "../main/Routes";
 import EmailDashboard from "../email/Routes";
@@ -19,10 +19,11 @@ const BackRoutes: StatelessComponent = () => (
   <Switch>
     <Route path="/admin/applications" component={ApplicationsRoutes} />
     <Route path="/admin/individual" component={IndApplicationsRoutes} />
+    <Route exact={true} path="/admin/grade" component={GradesRoutes} />
+    />
     <Route path="/admin/login" component={AuthRoutes} />
     <Route path="/admin/assessments" component={AssessmentsRoutes} />
     <Route path="/admin/selectors" component={SelectorsRoutes} />
-    <Route path="/admin/grades" component={GradesRoutes} />
     <Route path="/admin/admins" component={AdminsRoutes} />
     <Route path="/admin/emails" component={EmailDashboard} />
     <Route path="/admin/alumnis" component={AlumniDashboard} />
